@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap toggle buttons</title>
+    <meta name="author" content="Mattia Larentis">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/stylesheets/screen.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+</head>
+<body style="padding-top: 50px;">
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <h1>Bootstrap toggle buttons, from Mattia Larentis</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span3"></div>
+        <div class="span9">
+            <div class="toggle-button-list">
+                <input id="checkbox1" type="checkbox" value="value1" checked="checked">
+                <label for="checkbox1"></label>
+            </div>
+            <div class="toggle-button-list">
+                <input id="checkbox2" type="checkbox" value="value2">
+                <label for="checkbox2"></label>
+            </div>
+            <div class="toggle-button-list1">
+                <input id="checkbox3" type="checkbox" value="value3" checked="checked">
+                <label for="checkbox3"></label>
+            </div>
+
+            <div class="toggle-button-list1">
+                <input id="checkbox4" type="checkbox" value="value1">
+                <label for="checkbox4"></label>
+            </div>
+            <div class="toggle-button-list2">
+                <input id="checkbox5" type="checkbox" value="value2" checked="checked">
+                <label for="checkbox5"></label>
+            </div>
+            <div class="toggle-button-list2">
+                <input id="checkbox6" type="checkbox" value="value3">
+                <label for="checkbox6"></label>
+            </div>
+        </div>
+    </div>
+    <h4>Html:</h4>
+    <pre class="prettyprint linenums">
+&lt;div class="toggle-button-list">
+    &lt;input id="checkbox1" type="checkbox" value="value1" checked="checked">
+    &lt;label for="checkbox1">&lt;label>
+&lt;div>
+&lt;div class="toggle-button-list">
+    &lt;input id="checkbox2" type="checkbox" value="value2">
+    &lt;label for="checkbox2">&lt;label>
+&lt;div></pre>
+    <h4>Js:</h4>
+    <pre class="prettyprint linenums">
+$('.toggle-button-list').toggleButtons();
+// or
+$('.toggle-button-list').toggleButtons({
+    onClick: function() {
+      console.log('it works');
+    },
+    label: {
+        enabled: 'YAY'
+    },
+    style: {
+        enabled: 'primary', // 'info', 'warning', 'success' or nothing -> bootstrap buttons classes
+        disabled: 'danger'
+    }
+});</pre>
+<p class="pull-right">
+    <a href="https://twitter.com/SpiritualGuru">follow me</a> -
+    <a href="http://www.larentis.eu">my site</a>
+</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+<script src="../static/js/jquery.toggle.buttons.js"></script>
+<script>
+    window.prettyPrint && prettyPrint();
+
+    $('.toggle-button-list').toggleButtons({
+        onClick: function($el, event) {
+          console.log('it works');
+        },
+        style: {
+            enabled: 'primary',
+            disabled: 'danger'
+        }
+    });
+    $('.toggle-button-list1').toggleButtons({
+        style: {
+            enabled: 'info',
+            disabled: 'warning'
+        }
+    });
+    $('.toggle-button-list2').toggleButtons({
+        onClick: function($el, event) {
+            console.log($el.find('input').is(':checked'));
+        },
+        label: {
+            enabled: 'YAY'
+        },
+        style: {
+            enabled: 'success'
+        }
+    });
+</script>
+</body>
+</html>

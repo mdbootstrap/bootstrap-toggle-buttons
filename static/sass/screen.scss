@@ -1,0 +1,93 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/css3";
+
+$border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+
+.toggle-button {
+  display: inline-block;
+  @include background-image(radial-gradient(#62c462, #51a351));
+  @include border-radius(4px);
+  border: 1px solid;
+  border-color: $border;
+  width: 102px;
+  position: relative;
+  bottom: -2px;
+  height: 25px;
+
+  &:before, &:after {
+    padding-left: 12px;
+    line-height: 25px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: .4px;
+  }
+
+  &:before {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    content: attr(data-enabled);
+    padding-left: 15px;
+  }
+
+  &.disabled {
+    @include background-image(linear-gradient(top, #fff, #e6e6e6));
+    border-color: $border;
+    &:before {
+      padding-left: 30px;
+    }
+    &:after {
+      color: #555;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+      content: attr(data-disabled);
+
+    }
+  }
+
+  label {
+    cursor: pointer;
+    position: absolute;
+    width: 51px;
+    height: 25px;
+    @include background-image(linear-gradient(top, #fff, #e6e6e6));
+    @include border-radius(4px);
+    border: 1px solid;
+    border-color: $border;
+  }
+
+  input[type=checkbox] {
+    display: none;
+
+    &:checked + label {
+      top: -1px;
+      left: 50px;
+    }
+    & + label {
+      top: -1px;
+      left: -1px;
+    }
+  }
+
+  &.primary {
+    @include background-image(linear-gradient(top, #08C, #05C));
+  }
+  &.info {
+    @include background-image(linear-gradient(top, #5BC0DE, #2F96B4));
+  }
+  &.success {
+    @include background-image(linear-gradient(top, #62C462, #51A351));
+  }
+  &.warning {
+    @include background-image(linear-gradient(top, #FBB450, #F89406));
+  }
+  &.danger {
+    &:after {
+      color: white;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    }
+    @include background-image(linear-gradient(top, #EE5F5B, #BD362F));
+  }
+}
