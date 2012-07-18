@@ -62,8 +62,8 @@
 $('.toggle-button-list').toggleButtons();
 // or
 $('.toggle-button-list').toggleButtons({
-    onClick: function() {
-      console.log('it works');
+    onClick: function($el, status, event) {
+        console.log($el, status);
     },
     label: {
         enabled: 'YAY'
@@ -86,7 +86,7 @@ $('.toggle-button-list').toggleButtons({
     window.prettyPrint && prettyPrint();
 
     $('.toggle-button-list').toggleButtons({
-        onClick: function($el, event) {
+        onClick: function($el, status, event) {
           console.log('it works');
         },
         style: {
@@ -101,8 +101,8 @@ $('.toggle-button-list').toggleButtons({
         }
     });
     $('.toggle-button-list2').toggleButtons({
-        onClick: function($el, event) {
-            console.log($el.find('input').is(':checked'));
+        onClick: function($el, status, event) {
+            console.log($el, status);
         },
         label: {
             enabled: 'YAY'

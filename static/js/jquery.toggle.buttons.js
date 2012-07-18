@@ -37,7 +37,7 @@
           .toggleClass(styleActive)
           .toggleClass(styleDisabled);
 
-        options.onClick($element, e);
+        options.onClick($element, !$element.find('input').is(':checked'), e);
       });
 
     });
