@@ -1,8 +1,8 @@
 !function ($) {
-//  "use strict";
+  "use strict";
 
   $.fn.toggleButtons = function (opt) {
-    var $element, options, active, styleActive, styleDisabled, $labelEnabled, $span1, $span2, $spans;
+    var $element, $labelEnabled, options, active, styleActive, styleDisabled;
     this.each(function () {
       $element = $(this);
 
@@ -32,6 +32,14 @@
         $element.addClass(styleActive);
       if (!active && styleDisabled !== undefined)
         $element.addClass(styleDisabled);
+
+      $element.on('click', function (e) {
+        if ($(e.target).is('input'))
+          return true;
+
+        e.stopPropagation();
+        $(this).find('label').click();
+      });
 
       $element.find('label').on('click', function (e) {
         e.stopPropagation();
