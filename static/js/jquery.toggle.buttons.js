@@ -6,9 +6,19 @@
     this.each(function () {
       $element = $(this);
 
+      options = $.extend({}, $.fn.toggleButtons.defaults, opt);
+
       $element.addClass('toggle-button');
 
-      options = $.extend({}, $.fn.toggleButtons.defaults, opt);
+      //base css style
+      $element.css('width', options.width);
+      $element.find('label').css('width', parseInt(options.width)/2);
+      $element.find('input[type=checkbox]:checked + label').css('left', parseInt(options.width)/2);
+      $element.filter('.disabled:before').css('padding-left', parseInt(options.width)/3)
+
+
+      if(options.small === true)
+        $element.addClass('toggle-button-small');
 
       $element.attr('data-enabled', options.label.enabled === undefined ? "ON" : options.label.enabled);
       $element.attr('data-disabled', options.label.disabled === undefined ? "OFF" : options.label.disabled);
@@ -46,6 +56,8 @@
   $.fn.toggleButtons.defaults = {
     onClick: function () {
     },
+    width: '200px',
+    small: false,
     label: {
       enabled: undefined,
       disabled: undefined

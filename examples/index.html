@@ -45,6 +45,10 @@
                 <input id="checkbox6" type="checkbox" value="value3">
                 <label for="checkbox6"></label>
             </div>
+            <div class="toggle-button-list3">
+                <input id="checkbox7" type="checkbox" value="value1" checked="checked">
+                <label for="checkbox7"></label>
+            </div>
         </div>
     </div>
     <h4>Html:</h4>
@@ -80,6 +84,7 @@ $('.toggle-button-list').toggleButtons({
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../static/js/jquery.min.js"><\/script>')</script>
 <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
 <script src="../static/js/jquery.toggle.buttons.js"></script>
 <script>
@@ -109,6 +114,13 @@ $('.toggle-button-list').toggleButtons({
         },
         style: {
             enabled: 'success'
+        }
+    });
+    $('.toggle-button-list3').toggleButtons({
+        small: true,
+        style: {
+            enabled: 'info',
+            disabled: 'warning'
         }
     });
 </script>

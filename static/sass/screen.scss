@@ -13,7 +13,6 @@ $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   @include border-radius(4px);
   border: 1px solid;
   border-color: $border;
-  width: 102px;
   position: relative;
   bottom: -2px;
   height: 25px;
@@ -37,7 +36,7 @@ $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     @include background-image(linear-gradient(top, #fff, #e6e6e6));
     border-color: $border;
     &:before {
-      padding-left: 30px;
+      //padding-left: 30px;
     }
     &:after {
       color: #555;
@@ -50,7 +49,7 @@ $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   label {
     cursor: pointer;
     position: absolute;
-    width: 51px;
+    //width: 51px;
     height: 25px;
     @include background-image(linear-gradient(top, #fff, #e6e6e6));
     @include border-radius(4px);
@@ -63,7 +62,7 @@ $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 
     &:checked + label {
       top: -1px;
-      left: 50px;
+      //left: 50px;
     }
     & + label {
       top: -1px;
