@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <title>Bootstrap toggle buttons</title>
     <meta name="author" content="Mattia Larentis">
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <!--<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">-->
     <link href="../static/stylesheets/screen.css" rel="stylesheet">
-    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <!--<link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">-->
 </head>
 <body style="padding-top: 50px;">
 <a href="https://github.com/nostalgiaz/bootstrap-toggle-buttons"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
@@ -21,34 +21,37 @@
         <div class="span3"></div>
         <div class="span9">
             <div class="toggle-button-list">
-                <input id="checkbox1" type="checkbox" value="value1" checked="checked">
-                <label for="checkbox1"></label>
+                <input id="checkbox1" type="checkbox" value="value1">
             </div>
+            <div class="clearfix" style="margin-bottom: 20px"></div>
             <div class="toggle-button-list">
-                <input id="checkbox2" type="checkbox" value="value2">
-                <label for="checkbox2"></label>
+                <input id="checkbox2" type="checkbox" value="value1" checked="checked">
             </div>
-            <div class="toggle-button-list1">
-                <input id="checkbox3" type="checkbox" value="value3" checked="checked">
-                <label for="checkbox3"></label>
-            </div>
-
-            <div class="toggle-button-list1">
-                <input id="checkbox4" type="checkbox" value="value1">
-                <label for="checkbox4"></label>
-            </div>
-            <div class="toggle-button-list2">
-                <input id="checkbox5" type="checkbox" value="value2" checked="checked">
-                <label for="checkbox5"></label>
-            </div>
-            <div class="toggle-button-list2">
-                <input id="checkbox6" type="checkbox" value="value3">
-                <label for="checkbox6"></label>
-            </div>
-            <div class="toggle-button-list3">
-                <input id="checkbox7" type="checkbox" value="value1" checked="checked">
-                <label for="checkbox7"></label>
-            </div>
+            <!--<div class="toggle-button-list">-->
+                <!--<input id="checkbox2" type="checkbox" value="value2">-->
+                <!--<label for="checkbox2"></label>-->
+            <!--</div>-->
+            <!--<div class="toggle-button-list1">-->
+                <!--<input id="checkbox3" type="checkbox" value="value3" checked="checked">-->
+                <!--<label for="checkbox3"></label>-->
+            <!--</div>-->
+<!---->
+            <!--<div class="toggle-button-list1">-->
+                <!--<input id="checkbox4" type="checkbox" value="value1">-->
+                <!--<label for="checkbox4"></label>-->
+            <!--</div>-->
+            <!--<div class="toggle-button-list2">-->
+                <!--<input id="checkbox5" type="checkbox" value="value2" checked="checked">-->
+                <!--<label for="checkbox5"></label>-->
+            <!--</div>-->
+            <!--<div class="toggle-button-list2">-->
+                <!--<input id="checkbox6" type="checkbox" value="value3">-->
+                <!--<label for="checkbox6"></label>-->
+            <!--</div>-->
+            <!--<div class="toggle-button-list3">-->
+                <!--<input id="checkbox7" type="checkbox" value="value1" checked="checked">-->
+                <!--<label for="checkbox7"></label>-->
+            <!--</div>-->
         </div>
     </div>
     <h4>Html:</h4>
@@ -96,7 +99,7 @@ $('.toggle-button-list').toggleButtons({
         },
         style: {
             enabled: 'primary',
-            disabled: 'danger'
+            disabled: 'warning'
         }
     });
     $('.toggle-button-list1').toggleButtons({
