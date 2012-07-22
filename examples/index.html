@@ -41,7 +41,7 @@
     </div>
     <div class="row-fluid">
         <div class="span12">
-            <h3>Normal Use</h3>
+            <h3>Basic</h3>
             <hr>
         </div>
     </div>
@@ -78,7 +78,7 @@ $('#normal-toggle-button').toggleButtons();
             <div id="callback-toggle-button">
                 <input id="checkbox2" type="checkbox" value="value1" checked="checked">
             </div>
-            <p id="magic-text">The status is: true</p>
+            <p id="magic-text">Status is: true</p>
         </div>
         <div class="span8">
 
@@ -92,7 +92,7 @@ $('#normal-toggle-button').toggleButtons();
 $('#callback-toggle-button').toggleButtons({
     onChange: function ($el, status, e) {
         console.log($el, status, e);
-        $('#magic-text').text("The status is: " + status);
+        $('#magic-text').text("Status is: " + status);
     }
 });
 </pre>
@@ -227,7 +227,7 @@ $('#not-animated-toggle-button').toggleButtons({
     $('#callback-toggle-button').toggleButtons({
         onChange: function ($el, status, e) {
             console.log($el, status, e);
-            $('#magic-text').text("The status is: " + status);
+            $('#magic-text').text("Status is: " + status);
         }
     });
 
