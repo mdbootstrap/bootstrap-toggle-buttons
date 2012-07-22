@@ -10,6 +10,9 @@
 
       $element.addClass('toggle-button');
 
+      if(options.animated)
+        $element.addClass('toggle-button-animated');
+
       $element.css('width', options.width);
 
       $labelEnabled = $('<label></label>').attr('for', $element.find('input').attr('id'));
@@ -21,9 +24,8 @@
 
       active = $element.find('input').is(':checked');
 
-      if (active)
-        $element.addClass('active');
-      else $element.addClass('disabled');
+      if (!active)
+        $element.addClass('disabled');
 
       styleActive = options.style.enabled === undefined ? "" : options.style.enabled;
       styleDisabled = options.style.disabled === undefined ? "" : options.style.disabled;
@@ -41,16 +43,22 @@
         $(this).find('label').click();
       });
 
+
       $element.find('label').on('click', function (e) {
         e.stopPropagation();
+        e.preventDefault();
+
         $element = $(this).parent();
+
         $element
-          .toggleClass('active')
           .toggleClass('disabled')
           .toggleClass(styleActive)
           .toggleClass(styleDisabled);
 
-        options.onChange($element, !($element.find('input').is(':checked')), e);
+        active = !($element.find('input').is(':checked'));
+        $element.find('input').attr('checked', active);
+
+        options.onChange($element, active, e);
       });
 
     });
@@ -59,7 +67,8 @@
   $.fn.toggleButtons.defaults = {
     onChange: function () {
     },
-    width: 200,
+    width: 100,
+    animated: true,
     label: {
       enabled: undefined,
       disabled: undefined

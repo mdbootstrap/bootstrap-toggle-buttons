@@ -18,21 +18,34 @@
   text-align: left;
   min-height: 25px;
   max-height: 25px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-/* line 17, ../sass/screen.scss */
+/* line 25, ../sass/screen.scss */
 .toggle-button:before, .toggle-button:after {
   line-height: 25px;
   font-weight: bold;
   letter-spacing: .4px;
 }
-/* line 23, ../sass/screen.scss */
+/* line 31, ../sass/screen.scss */
 .toggle-button:before {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
   content: attr(data-enabled);
   margin-left: 10px;
 }
-/* line 30, ../sass/screen.scss */
+/* line 38, ../sass/screen.scss */
+.toggle-button.toggle-button-animated label {
+  -webkit-transition: all 0.05s;
+  -moz-transition: all 0.05s;
+  -o-transition: all 0.05s;
+  transition: all 0.05s;
+}
+/* line 42, ../sass/screen.scss */
 .toggle-button.disabled {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e6e6e6));
   background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
@@ -41,7 +54,7 @@
   background-image: linear-gradient(top, #ffffff, #e6e6e6);
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
-/* line 33, ../sass/screen.scss */
+/* line 45, ../sass/screen.scss */
 .toggle-button.disabled:before {
   color: #555;
   padding-left: 50%;
@@ -49,7 +62,7 @@
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
   content: attr(data-disabled);
 }
-/* line 42, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 .toggle-button label {
   cursor: pointer;
   position: absolute;
@@ -68,26 +81,28 @@
   border: 1px solid;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
-/* line 54, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
 .toggle-button input[type=checkbox] {
   display: none;
 }
-/* line 57, ../sass/screen.scss */
+/* line 73, ../sass/screen.scss */
 .toggle-button input[type=checkbox]:checked + label {
+  margin-left: 0;
   top: -1px;
   left: 50%;
 }
-/* line 61, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 .toggle-button input[type=checkbox] + label {
+  margin-left: -1px;
   top: -1px;
-  left: -1px;
+  left: 0%;
 }
-/* line 68, ../sass/screen.scss */
+/* line 86, ../sass/screen.scss */
 .toggle-button.primary:before, .toggle-button.info:before, .toggle-button.success:before, .toggle-button.warning:before, .toggle-button.danger:before {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
-/* line 74, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 .toggle-button.primary {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0088cc), color-stop(100%, #0055cc));
   background-image: -webkit-linear-gradient(top, #0088cc, #0055cc);
@@ -95,7 +110,7 @@
   background-image: -o-linear-gradient(top, #0088cc, #0055cc);
   background-image: linear-gradient(top, #0088cc, #0055cc);
 }
-/* line 77, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 .toggle-button.info {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5bc0de), color-stop(100%, #2f96b4));
   background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
@@ -103,7 +118,7 @@
   background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
   background-image: linear-gradient(top, #5bc0de, #2f96b4);
 }
-/* line 80, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 .toggle-button.success {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #62c462), color-stop(100%, #51a351));
   background-image: -webkit-linear-gradient(top, #62c462, #51a351);
@@ -111,7 +126,7 @@
   background-image: -o-linear-gradient(top, #62c462, #51a351);
   background-image: linear-gradient(top, #62c462, #51a351);
 }
-/* line 83, ../sass/screen.scss */
+/* line 101, ../sass/screen.scss */
 .toggle-button.warning {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fbb450), color-stop(100%, #f89406));
   background-image: -webkit-linear-gradient(top, #fbb450, #f89406);
@@ -119,7 +134,7 @@
   background-image: -o-linear-gradient(top, #fbb450, #f89406);
   background-image: linear-gradient(top, #fbb450, #f89406);
 }
-/* line 86, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 .toggle-button.danger {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ee5f5b), color-stop(100%, #bd362f));
   background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
