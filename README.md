@@ -40,6 +40,7 @@ JS
       },
       width: 100,
       animated: true,
+      transitionSpeed: 1, // Accepted values float or "percent" [ 1, 0.5, "150%" ]
       label: {
         enabled: "ON",
         disabled: "OFF"

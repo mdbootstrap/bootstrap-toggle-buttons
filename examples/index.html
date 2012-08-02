@@ -23,7 +23,8 @@
         #warning-toggle-button,
         #danger-toggle-button,
         #info-toggle-button,
-        #success-toggle-button {
+        #success-toggle-button,
+        #transition-percent-toggle-button {
             margin-bottom: 10px;
         }
     </style>
@@ -146,6 +147,7 @@ $('#text-toggle-button').toggleButtons({
                 <input id="checkbox6" type="checkbox" value="value1" checked="checked">
             </div>
             <br>
+
             <div id="danger-toggle-button">
                 <input id="checkbox7" type="checkbox" value="value1" checked="checked">
             </div>
@@ -168,12 +170,12 @@ $('#text-toggle-button').toggleButtons({
 <pre class="prettyprint linenums">
 &lt;div id="danger-toggle-button">
     &lt;input id="checkbox7" type="checkbox" value="value1" checked="checked">
-&lt;/div>
-    </pre>
+&lt;/div></pre>
             <h4>Js:</h4>
 <pre class="prettyprint linenums">
 $('#danger-toggle-button').toggleButtons({
     style: {
+        // Accepted values ["primary", "danger", "info", "success", "warning"] or nothing
         enabled: "danger",
         disabled: "info"
     }
@@ -205,6 +207,50 @@ $('#danger-toggle-button').toggleButtons({
 <pre class="prettyprint linenums">
 $('#not-animated-toggle-button').toggleButtons({
     animated: false
+});
+</pre>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            <h3>Transition Speed</h3>
+            <hr>
+        </div>
+    </div>
+    <div class="row-fluid">
+
+        <div class="span4">
+            <div id="transition-percent-toggle-button">
+                <input id="checkbox11" type="checkbox" value="value1" checked="checked">
+            </div>
+            <br>
+
+            <div id="transition-value-toggle-button">
+                <input id="checkbox12" type="checkbox" value="value1">
+            </div>
+            <br>
+
+        </div>
+        <div class="span8">
+
+            <h4>Html:</h4>
+<pre class="prettyprint linenums">
+&lt;div id="transition-percent-toggle-button">
+    &lt;input id="checkbox11" type="checkbox" value="value1" checked="checked">
+&lt;/div>
+
+&lt;div id="transition-value-toggle-button">
+    &lt;input id="checkbox12" type="checkbox" value="value1">
+&lt;/div></pre>
+            <h4>Js:</h4>
+<pre class="prettyprint linenums">
+$('#transition-percent-toggle-button').toggleButtons({
+    transitionSpeed: "500%"
+});
+
+$('#transition-value-toggle-button').toggleButtons({
+    // default value: 0.05
+    transitionSpeed: 1
 });
 </pre>
         </div>
@@ -272,6 +318,13 @@ $('#not-animated-toggle-button').toggleButtons({
 
     $('#not-animated-toggle-button').toggleButtons({
         animated: false
+    });
+
+    $('#transition-percent-toggle-button').toggleButtons({
+        transitionSpeed: "500%"
+    });
+    $('#transition-value-toggle-button').toggleButtons({
+        transitionSpeed: 1
     });
 </script>
 

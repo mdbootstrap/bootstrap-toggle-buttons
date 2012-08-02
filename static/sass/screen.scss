@@ -36,9 +36,9 @@ $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     margin-left: 10px;
   }
 
-  &.toggle-button-animated label {
-    @include transition(all .05s);
-  }
+  //&.toggle-button-animated label {
+  //  @include transition(all .05s);
+  //}
 
   &.disabled {
     @include background-image(linear-gradient(top, #fff, #e6e6e6));

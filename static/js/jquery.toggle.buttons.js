@@ -1,8 +1,18 @@
 !function ($) {
   "use strict";
+  // version: 1.1
 
   $.fn.toggleButtons = function (opt) {
-    var $element, $labelEnabled, options, active, styleActive, styleDisabled;
+    var $element
+      , $labelEnabled
+      , options
+      , active
+      , styleActive
+      , styleDisabled
+      , animationCss
+      , transitionSpeed
+      , defaultSpeed = 0.05;
+
     this.each(function () {
       $element = $(this);
 
@@ -10,14 +20,26 @@
 
       $element.addClass('toggle-button');
 
-      if(options.animated)
+      $labelEnabled = $('<label></label>').attr('for', $element.find('input').attr('id'));
+      $element.append($labelEnabled);
+
+      if (options.animated) {
         $element.addClass('toggle-button-animated');
 
+        if (options.transitionSpeed !== undefined)
+          if (/^(\d*%$)/.test(options.transitionSpeed))  // is a percent value?
+            transitionSpeed = defaultSpeed * parseInt(options.transitionSpeed) / 100;
+          else
+            transitionSpeed = options.transitionSpeed;
+        else transitionSpeed = defaultSpeed;
+
+        animationCss = ["-webkit-", "-moz-", "-o-", ""];
+        $(animationCss).each(function () {
+          $element.find('label').css(this + 'transition', 'all ' + transitionSpeed + 's');
+        });
+      }
+
       $element.css('width', options.width);
-
-      $labelEnabled = $('<label></label>').attr('for', $element.find('input').attr('id'));
-
-      $element.append($labelEnabled);
 
       $element.attr("data-enabled", options.label.enabled === undefined ? "ON" : options.label.enabled);
       $element.attr("data-disabled", options.label.disabled === undefined ? "OFF " : options.label.disabled);
@@ -69,6 +91,7 @@
     },
     width: 100,
     animated: true,
+    transitionSpeed: undefined,
     label: {
       enabled: undefined,
       disabled: undefined

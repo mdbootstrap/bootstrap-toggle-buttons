@@ -39,13 +39,6 @@
   content: attr(data-enabled);
   margin-left: 10px;
 }
-/* line 39, ../sass/screen.scss */
-.toggle-button.toggle-button-animated label {
-  -webkit-transition: all 0.05s;
-  -moz-transition: all 0.05s;
-  -o-transition: all 0.05s;
-  transition: all 0.05s;
-}
 /* line 43, ../sass/screen.scss */
 .toggle-button.disabled {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e6e6e6));
