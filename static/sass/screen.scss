@@ -1,11 +1,14 @@
 @import "compass/css3";
 
 $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+$white: #FFFFFF;
+$blue: #0088CC;
 
 .toggle-button {
   display: inline-block;
   cursor: pointer;
-  @include background-image(linear-gradient(top, #08C, #05C));
+  background: #0088CC;
+  @include background-image(linear-gradient(top, $blue, #0055CC));
   @include border-radius(4px);
   border: 1px solid;
   border-color: $border;
@@ -36,12 +39,9 @@ $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     margin-left: 10px;
   }
 
-  //&.toggle-button-animated label {
-  //  @include transition(all .05s);
-  //}
-
   &.disabled {
-    @include background-image(linear-gradient(top, #fff, #e6e6e6));
+    background: $white;
+    @include background-image(linear-gradient(top, $white, #E6E6E6));
     border-color: $border;
     &:before {
       color: #555;
@@ -57,7 +57,8 @@ $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     position: absolute;
     width: 50%;
     height: 25px;
-    @include background-image(linear-gradient(top, #fff, #e6e6e6));
+    background: $white;
+    @include background-image(linear-gradient(top, $white, #E6E6E6));
     @include border-radius(4px);
     border: 1px solid;
     border-color: $border;
@@ -91,18 +92,27 @@ $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   }
 
   &.primary {
-    @include background-image(linear-gradient(top, #08C, #05C));
+    background: $blue;
+    @include background-image(linear-gradient(top, $blue, #0055CC));
   }
   &.info {
-    @include background-image(linear-gradient(top, #5BC0DE, #2F96B4));
+    $startColor: #5BC0DE;
+    background: $startColor;
+    @include background-image(linear-gradient(top, $startColor, #2F96B4));
   }
   &.success {
-    @include background-image(linear-gradient(top, #62C462, #51A351));
+    $startColor: #62C462;
+    background: $startColor;
+    @include background-image(linear-gradient(top, $startColor, #51A351));
   }
   &.warning {
-    @include background-image(linear-gradient(top, #FBB450, #F89406));
+    $startColor: #DBB450;
+    background: $startColor;
+    @include background-image(linear-gradient(top, $startColor, #F89406));
   }
   &.danger {
-    @include background-image(linear-gradient(top, #EE5F5B, #BD362F));
+    $startColor: #EE5f5B;
+    background: $startColor;
+    @include background-image(linear-gradient(top, $startColor, #BD362F));
   }
 }
