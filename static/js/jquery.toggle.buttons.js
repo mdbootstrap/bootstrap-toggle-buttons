@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 1.1
+  // version: 1.2
 
   $.fn.toggleButtons = function (opt) {
     var $element
@@ -10,7 +10,7 @@
       , styleActive
       , styleDisabled
       , animationCss
-      , transitionSpeed
+      , transitionSpeed = 0.05
       , defaultSpeed = 0.05;
 
     this.each(function () {
@@ -31,7 +31,6 @@
             transitionSpeed = defaultSpeed * parseInt(options.transitionSpeed) / 100;
           else
             transitionSpeed = options.transitionSpeed;
-        else transitionSpeed = defaultSpeed;
 
         animationCss = ["-webkit-", "-moz-", "-o-", ""];
         $(animationCss).each(function () {
@@ -73,16 +72,18 @@
         $element = $(this).parent();
 
         $element
-          .toggleClass('disabled')
-          .toggleClass(styleActive)
-          .toggleClass(styleDisabled);
+          .delay(transitionSpeed * 500).queue(function () {
+            $(this).toggleClass('disabled')
+              .toggleClass(styleActive)
+              .toggleClass(styleDisabled)
+              .dequeue();
+          });
 
         active = !($element.find('input').is(':checked'));
-        $element.find('input').attr('checked', active);
 
+        $element.find('input').attr('checked', active);
         options.onChange($element, active, e);
       });
-
     });
   };
 
