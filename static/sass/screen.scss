@@ -1,7 +1,7 @@
 @import "compass/css3";
 
 $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-$white: #FFFFFF;
+$white: #FEFEFE;
 $blue: #0088CC;
 
 .toggle-button {
@@ -33,10 +33,11 @@ $blue: #0088CC;
   }
 
   &:before {
-    color: white;
+    color: $white;
+    padding-left: 0%;
+    margin-left: 10px;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
     content: attr(data-enabled);
-    margin-left: 10px;
   }
 
   &.disabled {
@@ -44,11 +45,15 @@ $blue: #0088CC;
     @include background-image(linear-gradient(top, $white, #E6E6E6));
     border-color: $border;
     &:before {
-      color: #555;
+      color: #555555;
       padding-left: 50%;
       margin-left: 10px;
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
       content: attr(data-disabled);
+    }
+    label {
+      margin-left: -1px;
+      left: 0%;
     }
   }
 
@@ -62,8 +67,10 @@ $blue: #0088CC;
     @include border-radius(4px);
     border: 1px solid;
     border-color: $border;
+    top: -1px;
+    margin-left: 0;
+    left: 50%;
   }
-
 
   input[type=checkbox] {
     display: none;
@@ -71,17 +78,6 @@ $blue: #0088CC;
     //position:absolute;
     //top: 0;
     //right: -20px;
-
-    &:checked + label {
-      margin-left: 0;
-      top: -1px;
-      left: 50%;
-    }
-    & + label {
-      margin-left: -1px;
-      top: -1px;
-      left: 0%;
-    }
   }
 
   &.primary, &.info, &.success, &.warning, &.danger {

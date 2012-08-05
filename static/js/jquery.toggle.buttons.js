@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 1.2
+  // version: 1.3
 
   $.fn.toggleButtons = function (opt) {
     var $element
@@ -102,5 +102,4 @@
       disabled: undefined
     }
   };
-
 }($);

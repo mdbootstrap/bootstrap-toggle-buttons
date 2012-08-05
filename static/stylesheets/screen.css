@@ -35,41 +35,47 @@
 }
 /* line 35, ../sass/screen.scss */
 .toggle-button:before {
-  color: white;
+  color: #fefefe;
+  padding-left: 0%;
+  margin-left: 10px;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
   content: attr(data-enabled);
-  margin-left: 10px;
 }
-/* line 42, ../sass/screen.scss */
+/* line 43, ../sass/screen.scss */
 .toggle-button.disabled {
-  background: white;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e6e6e6));
-  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: linear-gradient(top, #ffffff, #e6e6e6);
+  background: #fefefe;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fefefe), color-stop(100%, #e6e6e6));
+  background-image: -webkit-linear-gradient(top, #fefefe, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #fefefe, #e6e6e6);
+  background-image: -o-linear-gradient(top, #fefefe, #e6e6e6);
+  background-image: linear-gradient(top, #fefefe, #e6e6e6);
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
-/* line 46, ../sass/screen.scss */
+/* line 47, ../sass/screen.scss */
 .toggle-button.disabled:before {
-  color: #555;
+  color: #555555;
   padding-left: 50%;
   margin-left: 10px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
   content: attr(data-disabled);
 }
-/* line 55, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
+.toggle-button.disabled label {
+  margin-left: -1px;
+  left: 0%;
+}
+/* line 60, ../sass/screen.scss */
 .toggle-button label {
   cursor: pointer;
   position: absolute;
   width: 50%;
   height: 25px;
-  background: white;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #e6e6e6));
-  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
-  background-image: linear-gradient(top, #ffffff, #e6e6e6);
+  background: #fefefe;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fefefe), color-stop(100%, #e6e6e6));
+  background-image: -webkit-linear-gradient(top, #fefefe, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #fefefe, #e6e6e6);
+  background-image: -o-linear-gradient(top, #fefefe, #e6e6e6);
+  background-image: linear-gradient(top, #fefefe, #e6e6e6);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -77,29 +83,20 @@
   border-radius: 4px;
   border: 1px solid;
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  top: -1px;
+  margin-left: 0;
+  left: 50%;
 }
-/* line 68, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 .toggle-button input[type=checkbox] {
   display: none;
 }
-/* line 75, ../sass/screen.scss */
-.toggle-button input[type=checkbox]:checked + label {
-  margin-left: 0;
-  top: -1px;
-  left: 50%;
-}
-/* line 80, ../sass/screen.scss */
-.toggle-button input[type=checkbox] + label {
-  margin-left: -1px;
-  top: -1px;
-  left: 0%;
-}
-/* line 88, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 .toggle-button.primary:before, .toggle-button.info:before, .toggle-button.success:before, .toggle-button.warning:before, .toggle-button.danger:before {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
-/* line 94, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 .toggle-button.primary {
   background: #0088cc;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0088cc), color-stop(100%, #0055cc));
@@ -108,7 +105,7 @@
   background-image: -o-linear-gradient(top, #0088cc, #0055cc);
   background-image: linear-gradient(top, #0088cc, #0055cc);
 }
-/* line 98, ../sass/screen.scss */
+/* line 94, ../sass/screen.scss */
 .toggle-button.info {
   background: #5bc0de;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5bc0de), color-stop(100%, #2f96b4));
@@ -117,7 +114,7 @@
   background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
   background-image: linear-gradient(top, #5bc0de, #2f96b4);
 }
-/* line 103, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 .toggle-button.success {
   background: #62c462;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #62c462), color-stop(100%, #51a351));
@@ -126,7 +123,7 @@
   background-image: -o-linear-gradient(top, #62c462, #51a351);
   background-image: linear-gradient(top, #62c462, #51a351);
 }
-/* line 108, ../sass/screen.scss */
+/* line 104, ../sass/screen.scss */
 .toggle-button.warning {
   background: #dbb450;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dbb450), color-stop(100%, #f89406));
@@ -135,7 +132,7 @@
   background-image: -o-linear-gradient(top, #dbb450, #f89406);
   background-image: linear-gradient(top, #dbb450, #f89406);
 }
-/* line 113, ../sass/screen.scss */
+/* line 109, ../sass/screen.scss */
 .toggle-button.danger {
   background: #ee5f5b;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ee5f5b), color-stop(100%, #bd362f));
