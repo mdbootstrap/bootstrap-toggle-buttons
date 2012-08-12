@@ -11,7 +11,7 @@ HTML
 
     <div id="toggle-button">
         <input id="checkbox1" type="checkbox" value="value1" checked="checked">
-    <div>
+    </div>
 
 
 JS
@@ -25,7 +25,7 @@ HTML
 
     <div id="toggle-button">
         <input id="checkbox1" type="checkbox" value="value1" checked="checked">
-    <div>
+    </div>
 
 
 JS
