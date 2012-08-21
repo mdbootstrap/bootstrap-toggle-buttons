@@ -1,6 +1,7 @@
 !function ($) {
   "use strict";
-  // version: 1.3
+  // version: 1.4
+  // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   $.fn.toggleButtons = function (opt) {
     var $element
@@ -17,6 +18,9 @@
       $element = $(this);
 
       options = $.extend({}, $.fn.toggleButtons.defaults, opt);
+
+      $element.attr("data-enabled", options.label.enabled === undefined ? "ON" : options.label.enabled);
+      $element.attr("data-disabled", options.label.disabled === undefined ? "OFF " : options.label.disabled);
 
       $element.addClass('toggle-button');
 
@@ -39,9 +43,6 @@
       }
 
       $element.css('width', options.width);
-
-      $element.attr("data-enabled", options.label.enabled === undefined ? "ON" : options.label.enabled);
-      $element.attr("data-disabled", options.label.disabled === undefined ? "OFF " : options.label.disabled);
 
       active = $element.find('input').is(':checked');
 
