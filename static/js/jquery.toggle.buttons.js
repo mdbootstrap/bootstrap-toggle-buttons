@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 1.4
+  // version: 1.5
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   $.fn.toggleButtons = function (method) {
