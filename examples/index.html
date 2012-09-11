@@ -286,6 +286,36 @@ $('#disabled-toggle-button').toggleButtons('toggleActivation');  // to toggle th
 </pre>
         </div>
     </div>
+
+    <div class="row-fluid">
+        <div class="span12">
+            <h3>Label</h3>
+            <hr>
+        </div>
+    </div>
+    <div class="row-fluid">
+
+        <div class="span4">
+            <label for="checkbox14">Toggle me!</label>
+            <div id="label-toggle-button">
+                <input id="checkbox14" type="checkbox" value="value1" checked="checked">
+            </div>
+        </div>
+        <div class="span8">
+
+            <h4>Html:</h4>
+<pre class="prettyprint linenums">
+&lt;div id="label-toggle-button">
+    &lt;input id="checkbox14" type="checkbox" value="value1" checked="checked">
+&lt;/div></pre>
+            <h4>Js:</h4>
+<pre class="prettyprint linenums">
+$('#label-toggle-button').toggleButtons();
+$('#label-toggle-button').toggleButtons('toggleState');  // to toggle the activation state
+</pre>
+        </div>
+    </div>
+
     <p class="pull-right">
         <a href="https://twitter.com/SpiritualGuru">follow me</a> -
         <a href="http://www.larentis.eu">my site</a>
@@ -363,7 +393,9 @@ $('#disabled-toggle-button').toggleButtons('toggleActivation');  // to toggle th
 
     $('#toggle-disabled-toggle-button').on('click', function() {
         $(this).siblings().toggleButtons('toggleActivation');
-    })
+    });
+
+    $('#label-toggle-button').toggleButtons();
 </script>
 
 </body>

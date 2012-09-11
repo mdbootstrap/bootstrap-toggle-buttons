@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 1.5
+  // version: 1.6
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   $.fn.toggleButtons = function (method) {
@@ -69,6 +69,12 @@
               $(this).find('label').click();
             });
 
+            $element.find('input').on('change', function(e) {
+              e.stopPropagation();
+              e.preventDefault();
+
+              $element.toggleButtons("toggleState", true);
+            });
 
             $element.find('label').on('click', function (e) {
               e.stopPropagation();
@@ -96,6 +102,12 @@
         },
         toggleActivation: function () {
           $(this).toggleClass('deactivate');
+        },
+        toggleState: function(clickOnAnotherLabel) {
+          if(clickOnAnotherLabel !== undefined)
+            $(this).toggleClass('disabled');
+          else
+            $(this).find('label').click();
         }
       };
 
