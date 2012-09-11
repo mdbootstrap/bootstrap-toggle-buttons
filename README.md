@@ -51,3 +51,5 @@ JS
         disabled: "danger"
       }
     });
+
+    $('#toggle-button').toggleButtons('toggleActivation'); // to toggle the disabled status
