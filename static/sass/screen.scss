@@ -57,6 +57,10 @@ $blue: #0088CC;
     }
   }
 
+  &.deactivate {
+      @include opacity(0.5);
+  }
+
   label {
     cursor: pointer;
     position: absolute;
@@ -74,7 +78,7 @@ $blue: #0088CC;
 
   input[type=checkbox] {
     display: none;
-    // debug
+    //debug
     //position:absolute;
     //top: 0;
     //right: -20px;
