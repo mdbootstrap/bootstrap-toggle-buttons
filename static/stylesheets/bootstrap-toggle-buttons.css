@@ -7,6 +7,7 @@
   background-image: -webkit-linear-gradient(top, #0088cc, #0055cc);
   background-image: -moz-linear-gradient(top, #0088cc, #0055cc);
   background-image: -o-linear-gradient(top, #0088cc, #0055cc);
+  background-image: -ms-linear-gradient(top, #0088cc, #0055cc);
   background-image: linear-gradient(top, #0088cc, #0055cc);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -48,6 +49,7 @@
   background-image: -webkit-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: -moz-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: -o-linear-gradient(top, #fefefe, #e6e6e6);
+  background-image: -ms-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: linear-gradient(top, #fefefe, #e6e6e6);
   border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
@@ -68,8 +70,13 @@
 .toggle-button.deactivate {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
+  cursor: default !important;
 }
-/* line 64, ../sass/bootstrap-toggle-buttons.scss */
+/* line 63, ../sass/bootstrap-toggle-buttons.scss */
+.toggle-button.deactivate label {
+  cursor: default !important;
+}
+/* line 68, ../sass/bootstrap-toggle-buttons.scss */
 .toggle-button label {
   cursor: pointer;
   position: absolute;
@@ -80,6 +87,7 @@
   background-image: -webkit-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: -moz-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: -o-linear-gradient(top, #fefefe, #e6e6e6);
+  background-image: -ms-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: linear-gradient(top, #fefefe, #e6e6e6);
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -92,57 +100,62 @@
   margin-left: 0;
   left: 50%;
 }
-/* line 79, ../sass/bootstrap-toggle-buttons.scss */
+/* line 83, ../sass/bootstrap-toggle-buttons.scss */
 .toggle-button input[type=checkbox] {
   display: none;
 }
-/* line 88, ../sass/bootstrap-toggle-buttons.scss */
+/* line 92, ../sass/bootstrap-toggle-buttons.scss */
 .toggle-button.primary:before, .toggle-button.info:before, .toggle-button.success:before, .toggle-button.warning:before, .toggle-button.danger:before {
   color: white;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
-/* line 94, ../sass/bootstrap-toggle-buttons.scss */
+/* line 98, ../sass/bootstrap-toggle-buttons.scss */
 .toggle-button.primary {
   background: #0088cc;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0088cc), color-stop(100%, #0055cc));
   background-image: -webkit-linear-gradient(top, #0088cc, #0055cc);
   background-image: -moz-linear-gradient(top, #0088cc, #0055cc);
   background-image: -o-linear-gradient(top, #0088cc, #0055cc);
+  background-image: -ms-linear-gradient(top, #0088cc, #0055cc);
   background-image: linear-gradient(top, #0088cc, #0055cc);
 }
-/* line 98, ../sass/bootstrap-toggle-buttons.scss */
+/* line 102, ../sass/bootstrap-toggle-buttons.scss */
 .toggle-button.info {
   background: #5bc0de;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5bc0de), color-stop(100%, #2f96b4));
   background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
   background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
   background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -ms-linear-gradient(top, #5bc0de, #2f96b4);
   background-image: linear-gradient(top, #5bc0de, #2f96b4);
 }
-/* line 103, ../sass/bootstrap-toggle-buttons.scss */
+/* line 107, ../sass/bootstrap-toggle-buttons.scss */
 .toggle-button.success {
   background: #62c462;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #62c462), color-stop(100%, #51a351));
   background-image: -webkit-linear-gradient(top, #62c462, #51a351);
   background-image: -moz-linear-gradient(top, #62c462, #51a351);
   background-image: -o-linear-gradient(top, #62c462, #51a351);
+  background-image: -ms-linear-gradient(top, #62c462, #51a351);
   background-image: linear-gradient(top, #62c462, #51a351);
 }
-/* line 108, ../sass/bootstrap-toggle-buttons.scss */
+/* line 112, ../sass/bootstrap-toggle-buttons.scss */
 .toggle-button.warning {
   background: #dbb450;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dbb450), color-stop(100%, #f89406));
   background-image: -webkit-linear-gradient(top, #dbb450, #f89406);
   background-image: -moz-linear-gradient(top, #dbb450, #f89406);
   background-image: -o-linear-gradient(top, #dbb450, #f89406);
+  background-image: -ms-linear-gradient(top, #dbb450, #f89406);
   background-image: linear-gradient(top, #dbb450, #f89406);
 }
-/* line 113, ../sass/bootstrap-toggle-buttons.scss */
+/* line 117, ../sass/bootstrap-toggle-buttons.scss */
 .toggle-button.danger {
   background: #ee5f5b;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ee5f5b), color-stop(100%, #bd362f));
   background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
   background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
   background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: -ms-linear-gradient(top, #ee5f5b, #bd362f);
   background-image: linear-gradient(top, #ee5f5b, #bd362f);
 }

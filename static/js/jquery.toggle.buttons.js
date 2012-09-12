@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 1.6
+  // version: 1.7
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   $.fn.toggleButtons = function (method) {
@@ -50,7 +50,7 @@
             if (!active)
               $element.addClass('disabled');
 
-            if($element.find('input').is(':disabled'))
+            if ($element.find('input').is(':disabled'))
               $element.addClass('deactivate');
 
             styleActive = options.style.enabled === undefined ? "" : options.style.enabled;
@@ -66,24 +66,25 @@
                 return true;
 
               e.stopPropagation();
+
               $(this).find('label').click();
             });
 
-            $element.find('input').on('change', function(e) {
+            $element.find('input').on('change', function (e) {
               e.stopPropagation();
               e.preventDefault();
 
-              $element.toggleButtons("toggleState", true);
+              $(this).closest('.toggle-button').toggleButtons("toggleState", true);
             });
 
             $element.find('label').on('click', function (e) {
               e.stopPropagation();
               e.preventDefault();
 
-              if($element.is('.deactivate'))
-                return true;
-
               $element = $(this).parent();
+
+              if ($element.is('.deactivate'))
+                return true;
 
               $element
                 .delay(transitionSpeed * 500).queue(function () {
@@ -103,21 +104,20 @@
         toggleActivation: function () {
           $(this).toggleClass('deactivate');
         },
-        toggleState: function(clickOnAnotherLabel) {
-          if(clickOnAnotherLabel !== undefined)
+        toggleState: function (clickOnAnotherLabel) {
+          if (clickOnAnotherLabel !== undefined)
             $(this).toggleClass('disabled');
           else
             $(this).find('label').click();
         }
       };
 
-    if (methods[method]) {
+    if (methods[method])
       return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-    } else if (typeof method === 'object' || !method) {
+    else if (typeof method === 'object' || !method)
       return methods.init.apply(this, arguments);
-    } else {
+    else
       $.error('Method ' + method + ' does not exist on jQuery.tooltip');
-    }
   };
 
   $.fn.toggleButtons.defaults = {

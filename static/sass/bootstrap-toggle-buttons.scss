@@ -59,6 +59,10 @@ $blue: #0088CC;
 
   &.deactivate {
       @include opacity(0.5);
+      cursor: default !important;
+      label {
+          cursor: default !important;
+      }
   }
 
   label {

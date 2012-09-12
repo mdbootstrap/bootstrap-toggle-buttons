@@ -37,60 +37,62 @@
         src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 
 <div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span12">
-            <h1>Bootstrap toggle buttons <small>- by Mattia Larentis</small></h1>
+<div class="row-fluid">
+    <div class="span12">
+        <h1>Bootstrap toggle buttons
+            <small>- by Mattia Larentis</small>
+        </h1>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Basic</h3>
+        <hr>
+    </div>
+</div>
+<div class="row-fluid">
+
+    <div class="span4">
+        <div id="normal-toggle-button">
+            <input id="checkbox1" type="checkbox" value="value1" checked="checked">
         </div>
     </div>
-    <div class="row-fluid">
-        <div class="span12">
-            <h3>Basic</h3>
-            <hr>
-        </div>
-    </div>
-    <div class="row-fluid">
+    <div class="span8">
 
-        <div class="span4">
-            <div id="normal-toggle-button">
-                <input id="checkbox1" type="checkbox" value="value1" checked="checked">
-            </div>
-        </div>
-        <div class="span8">
-
-            <h4>Html:</h4>
+        <h4>Html:</h4>
 <pre class="prettyprint linenums">
 &lt;div id="normal-toggle-button">
     &lt;input id="checkbox1" type="checkbox" value="value1" checked="checked">
 &lt;div></pre>
-            <h4>Js:</h4>
+        <h4>Js:</h4>
 <pre class="prettyprint linenums">
 $('#normal-toggle-button').toggleButtons();
 </pre>
-        </div>
     </div>
+</div>
 
-    <div class="row-fluid">
-        <div class="span12">
-            <h3>Callback</h3>
-            <hr>
-        </div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Callback</h3>
+        <hr>
     </div>
-    <div class="row-fluid">
+</div>
+<div class="row-fluid">
 
-        <div class="span4">
-            <div id="callback-toggle-button">
-                <input id="checkbox2" type="checkbox" value="value1" checked="checked">
-            </div>
-            <p id="magic-text">Status is: true</p>
+    <div class="span4">
+        <div id="callback-toggle-button">
+            <input id="checkbox2" type="checkbox" value="value1" checked="checked">
         </div>
-        <div class="span8">
+        <p id="magic-text">Status is: true</p>
+    </div>
+    <div class="span8">
 
-            <h4>Html:</h4>
+        <h4>Html:</h4>
 <pre class="prettyprint linenums">
 &lt;div id="callback-toggle-button">
     &lt;input id="checkbox2" type="checkbox" value="value1" checked="checked">
 &lt;div></pre>
-            <h4>Js:</h4>
+        <h4>Js:</h4>
 <pre class="prettyprint linenums">
 $('#callback-toggle-button').toggleButtons({
     onChange: function ($el, status, e) {
@@ -99,81 +101,81 @@ $('#callback-toggle-button').toggleButtons({
     }
 });
 </pre>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Text & Size</h3>
+        <hr>
+    </div>
+</div>
+<div class="row-fluid">
+
+    <div class="span4">
+        <div id="text-size-toggle-button">
+            <input id="checkbox4" type="checkbox" value="value1">
         </div>
     </div>
+    <div class="span8">
 
-    <div class="row-fluid">
-        <div class="span12">
-            <h3>Text & Size</h3>
-            <hr>
-        </div>
-    </div>
-    <div class="row-fluid">
-
-        <div class="span4">
-            <div id="text-size-toggle-button">
-                <input id="checkbox4" type="checkbox" value="value1">
-            </div>
-        </div>
-        <div class="span8">
-
-            <h4>Html:</h4>
+        <h4>Html:</h4>
 <pre class="prettyprint linenums">
 &lt;div id="text-toggle-button">
     &lt;input id="checkbox4" type="checkbox" value="value1">
 &lt;div></pre>
-            <h4>Js:</h4>
+        <h4>Js:</h4>
 <pre class="prettyprint linenums">
 $('#text-toggle-button').toggleButtons({
-    width: 200,
+    width: 220,
     label: {
         enabled: "Lorem Ipsum",
         disabled: "Dolor Sit"
     }
 });
 </pre>
-        </div>
     </div>
+</div>
 
 
-    <div class="row-fluid">
-        <div class="span12">
-            <h3>Style</h3>
-            <hr>
-        </div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Style</h3>
+        <hr>
     </div>
-    <div class="row-fluid">
+</div>
+<div class="row-fluid">
 
-        <div class="span4">
-            <div id="warning-toggle-button">
-                <input id="checkbox6" type="checkbox" value="value1" checked="checked">
-            </div>
-            <br>
-
-            <div id="danger-toggle-button">
-                <input id="checkbox7" type="checkbox" value="value1" checked="checked">
-            </div>
-            <br>
-
-            <div id="info-toggle-button">
-                <input id="checkbox8" type="checkbox" value="value1" checked="checked">
-            </div>
-            <br>
-
-            <div id="success-toggle-button">
-                <input id="checkbox9" type="checkbox" value="value1" checked="checked">
-            </div>
-            <br>
-
+    <div class="span4">
+        <div id="warning-toggle-button">
+            <input id="checkbox6" type="checkbox" value="value1" checked="checked">
         </div>
-        <div class="span8">
+        <br>
 
-            <h4>Html:</h4>
+        <div id="danger-toggle-button">
+            <input id="checkbox7" type="checkbox" value="value1" checked="checked">
+        </div>
+        <br>
+
+        <div id="info-toggle-button">
+            <input id="checkbox8" type="checkbox" value="value1" checked="checked">
+        </div>
+        <br>
+
+        <div id="success-toggle-button">
+            <input id="checkbox9" type="checkbox" value="value1" checked="checked">
+        </div>
+        <br>
+
+    </div>
+    <div class="span8">
+
+        <h4>Html:</h4>
 <pre class="prettyprint linenums">
 &lt;div id="danger-toggle-button">
     &lt;input id="checkbox7" type="checkbox" value="value1" checked="checked">
 &lt;/div></pre>
-            <h4>Js:</h4>
+        <h4>Js:</h4>
 <pre class="prettyprint linenums">
 $('#danger-toggle-button').toggleButtons({
     style: {
@@ -183,59 +185,59 @@ $('#danger-toggle-button').toggleButtons({
     }
 });
 </pre>
+    </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Not Animated</h3>
+        <hr>
+    </div>
+</div>
+<div class="row-fluid">
+
+    <div class="span4">
+        <div id="not-animated-toggle-button">
+            <input id="checkbox10" type="checkbox" value="value1" checked="checked">
         </div>
     </div>
-    <div class="row-fluid">
-        <div class="span12">
-            <h3>Not Animated</h3>
-            <hr>
-        </div>
-    </div>
-    <div class="row-fluid">
+    <div class="span8">
 
-        <div class="span4">
-            <div id="not-animated-toggle-button">
-                <input id="checkbox10" type="checkbox" value="value1" checked="checked">
-            </div>
-        </div>
-        <div class="span8">
-
-            <h4>Html:</h4>
+        <h4>Html:</h4>
 <pre class="prettyprint linenums">
 &lt;div id="not-animated-toggle-button">
     &lt;input id="checkbox10" type="checkbox" value="value1" checked="checked">
 &lt;/div></pre>
-            <h4>Js:</h4>
+        <h4>Js:</h4>
 <pre class="prettyprint linenums">
 $('#not-animated-toggle-button').toggleButtons({
     animated: false
 });
 </pre>
-        </div>
     </div>
-    <div class="row-fluid">
-        <div class="span12">
-            <h3>Transition Speed</h3>
-            <hr>
-        </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Transition Speed</h3>
+        <hr>
     </div>
-    <div class="row-fluid">
+</div>
+<div class="row-fluid">
 
-        <div class="span4">
-            <div id="transition-percent-toggle-button">
-                <input id="checkbox11" type="checkbox" value="value1" checked="checked">
-            </div>
-            <br>
-
-            <div id="transition-value-toggle-button">
-                <input id="checkbox12" type="checkbox" value="value1">
-            </div>
-            <br>
-
+    <div class="span4">
+        <div id="transition-percent-toggle-button">
+            <input id="checkbox11" type="checkbox" value="value1" checked="checked">
         </div>
-        <div class="span8">
+        <br>
 
-            <h4>Html:</h4>
+        <div id="transition-value-toggle-button">
+            <input id="checkbox12" type="checkbox" value="value1">
+        </div>
+        <br>
+
+    </div>
+    <div class="span8">
+
+        <h4>Html:</h4>
 <pre class="prettyprint linenums">
 &lt;div id="transition-percent-toggle-button">
     &lt;input id="checkbox11" type="checkbox" value="value1" checked="checked">
@@ -244,7 +246,7 @@ $('#not-animated-toggle-button').toggleButtons({
 &lt;div id="transition-value-toggle-button">
     &lt;input id="checkbox12" type="checkbox" value="value1">
 &lt;/div></pre>
-            <h4>Js:</h4>
+        <h4>Js:</h4>
 <pre class="prettyprint linenums">
 $('#transition-percent-toggle-button').toggleButtons({
     transitionSpeed: "500%"
@@ -255,71 +257,130 @@ $('#transition-value-toggle-button').toggleButtons({
     transitionSpeed: 1
 });
 </pre>
-        </div>
     </div>
-    <div class="row-fluid">
-        <div class="span12">
-            <h3>Disabled</h3>
-            <hr>
-        </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Disabled</h3>
+        <hr>
     </div>
-    <div class="row-fluid">
-        <div class="span4">
-            <div id="disabled-toggle-button">
-                <input id="checkbox13" type="checkbox" value="value1" checked="checked" disabled="">
-            </div>
-            <br>
-            <button id="toggle-disabled-toggle-button" class="btn btn-primary">Toggle me!</button>
-            <br>
+</div>
+<div class="row-fluid">
+    <div class="span4">
+        <div id="disabled-toggle-button">
+            <input id="checkbox13" type="checkbox" value="value1" checked="checked" disabled="">
         </div>
-        <div class="span8">
+        <br>
+        <button id="toggle-disabled-toggle-button" class="btn btn-primary">
+            Toggle me!
+        </button>
+        <br>
+    </div>
+    <div class="span8">
 
-            <h4>Html:</h4>
+        <h4>Html:</h4>
 <pre class="prettyprint linenums">
 &lt;div id="disabled-toggle-button">
     &lt;input id="checkbox13" type="checkbox" value="value1" checked="checked" disabled="">
 &lt;/div></pre>
-            <h4>Js:</h4>
+        <h4>Js:</h4>
 <pre class="prettyprint linenums">
 $('#disabled-toggle-button').toggleButtons();
 $('#disabled-toggle-button').toggleButtons('toggleActivation');  // to toggle the disabled state
 </pre>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Label</h3>
+        <hr>
+    </div>
+</div>
+<div class="row-fluid">
+
+    <div class="span4">
+        <label for="checkbox14">Toggle me!</label>
+
+        <div id="label-toggle-button">
+            <input id="checkbox14" type="checkbox" value="value1" checked="checked">
         </div>
     </div>
+    <div class="span8">
 
-    <div class="row-fluid">
-        <div class="span12">
-            <h3>Label</h3>
-            <hr>
-        </div>
-    </div>
-    <div class="row-fluid">
-
-        <div class="span4">
-            <label for="checkbox14">Toggle me!</label>
-            <div id="label-toggle-button">
-                <input id="checkbox14" type="checkbox" value="value1" checked="checked">
-            </div>
-        </div>
-        <div class="span8">
-
-            <h4>Html:</h4>
+        <h4>Html:</h4>
 <pre class="prettyprint linenums">
+&lt;label for="checkbox14">Toggle me!&lt;/label>
 &lt;div id="label-toggle-button">
     &lt;input id="checkbox14" type="checkbox" value="value1" checked="checked">
 &lt;/div></pre>
-            <h4>Js:</h4>
+        <h4>Js:</h4>
 <pre class="prettyprint linenums">
 $('#label-toggle-button').toggleButtons();
 $('#label-toggle-button').toggleButtons('toggleState');  // to toggle the activation state
 </pre>
-        </div>
     </div>
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Class</h3>
+        <hr>
+    </div>
+</div>
+<div class="row-fluid">
 
-    <p class="pull-right">
-        <a href="https://twitter.com/SpiritualGuru">follow me</a> -
-        <a href="http://www.larentis.eu">my site</a>
-    </p>
+        <div class="span4">
+            <label for="checkbox15">one</label>
+
+            <div class="toggle-button-class">
+                <input id="checkbox15" type="checkbox" value="value1" checked="checked">
+            </div>
+            <br>
+            <br>
+            <label for="checkbox16">two</label>
+
+            <div class="toggle-button-class">
+                <input id="checkbox16" type="checkbox" value="value1" checked="checked">
+            </div>
+            <br>
+            <br>
+
+            <label for="checkbox17">three</label>
+
+            <div class="toggle-button-class">
+                <input id="checkbox17" type="checkbox" value="value1" checked="checked" disabled="">
+            </div>
+            <br>
+        </div>
+    <div class="span8">
+
+        <h4>Html:</h4>
+<pre class="prettyprint linenums">
+&lt;label for="checkbox15">one&lt;/label>
+&lt;div class="toggle-button-class">
+    &lt;input id="checkbox15" type="checkbox" value="value1" checked="checked">
+&lt;/div>
+
+&lt;label for="checkbox16">two&lt;/label>
+&lt;div class="toggle-button-class">
+    &lt;input id="checkbox16" type="checkbox" value="value1" checked="checked">
+&lt;/div>
+
+&lt;label for="checkbox17">three&lt;/label>
+&lt;div class="toggle-button-class">
+    &lt;input id="checkbox17" type="checkbox" value="value1" checked="checked" disabled="">
+&lt;/div></pre>
+        <h4>Js:</h4>
+<pre class="prettyprint linenums">
+$('.toggle-button-class').toggleButtons();
+</pre>
+    </div>
+</div>
+
+<p class="pull-right">
+    <a href="https://twitter.com/SpiritualGuru">follow me</a> -
+    <a href="http://www.larentis.eu">my site</a>
+</p>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -339,7 +400,7 @@ $('#label-toggle-button').toggleButtons('toggleState');  // to toggle the activa
     });
 
     $('#text-size-toggle-button').toggleButtons({
-        width: 200,
+        width: 220,
         label: {
             enabled: "Lorem Ipsum",
             disabled: "Dolor Sit"
@@ -391,11 +452,13 @@ $('#label-toggle-button').toggleButtons('toggleState');  // to toggle the activa
 
     $('#disabled-toggle-button').toggleButtons();
 
-    $('#toggle-disabled-toggle-button').on('click', function() {
+    $('#toggle-disabled-toggle-button').on('click', function () {
         $(this).siblings().toggleButtons('toggleActivation');
     });
 
     $('#label-toggle-button').toggleButtons();
+
+    $('.toggle-button-class').toggleButtons();
 </script>
 
 </body>
