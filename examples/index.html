@@ -53,6 +53,20 @@
 <div class="row-fluid">
 
     <div class="span4">
+        <div style="display: inline-block; width: 100px; overflow: hidden; height: 20px; position: relative;">
+            <div style="display: inline-block; width: 150px; position: absolute; top: 0; left: 0;">
+                <span style="display: inline-block; width: 50px; background: #8a2be2; float: left;">ON</span>
+                <label style="display: inline-block; width: 50px; height: 20px; margin:0; background: red; float: left;"></label>
+                <span style="display: inline-block; width: 50px; background: green; float: left;">OFF</span>
+                <input type="checkbox" value="value1" checked="checked" style="display: none">
+            </div>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="row-fluid">
+
+    <div class="span4">
         <div id="normal-toggle-button">
             <input id="checkbox1" type="checkbox" value="value1" checked="checked">
         </div>
@@ -329,29 +343,29 @@ $('#label-toggle-button').toggleButtons('toggleState');  // to toggle the activa
 </div>
 <div class="row-fluid">
 
-        <div class="span4">
-            <label for="checkbox15">one</label>
+    <div class="span4">
+        <label for="checkbox15">one</label>
 
-            <div class="toggle-button-class">
-                <input id="checkbox15" type="checkbox" value="value1" checked="checked">
-            </div>
-            <br>
-            <br>
-            <label for="checkbox16">two</label>
-
-            <div class="toggle-button-class">
-                <input id="checkbox16" type="checkbox" value="value1" checked="checked">
-            </div>
-            <br>
-            <br>
-
-            <label for="checkbox17">three</label>
-
-            <div class="toggle-button-class">
-                <input id="checkbox17" type="checkbox" value="value1" checked="checked" disabled="">
-            </div>
-            <br>
+        <div class="toggle-button-class">
+            <input id="checkbox15" type="checkbox" value="value1" checked="checked">
         </div>
+        <br>
+        <br>
+        <label for="checkbox16">two</label>
+
+        <div class="toggle-button-class">
+            <input id="checkbox16" type="checkbox" value="value1" checked="checked">
+        </div>
+        <br>
+        <br>
+
+        <label for="checkbox17">three</label>
+
+        <div class="toggle-button-class">
+            <input id="checkbox17" type="checkbox" value="value1" checked="checked" disabled="">
+        </div>
+        <br>
+    </div>
     <div class="span8">
 
         <h4>Html:</h4>

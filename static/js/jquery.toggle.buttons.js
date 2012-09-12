@@ -70,16 +70,10 @@
               $(this).find('label').click();
             });
 
-            $element.find('input').on('change', function (e) {
+            var mainClickFunction = function (e) {
               e.stopPropagation();
               e.preventDefault();
-
-              $(this).closest('.toggle-button').toggleButtons("toggleState", true);
-            });
-
-            $element.find('label').on('click', function (e) {
-              e.stopPropagation();
-              e.preventDefault();
+              console.log('click2')
 
               $element = $(this).parent();
 
@@ -98,7 +92,30 @@
 
               $element.find('input').attr('checked', active);
               options.onChange($element, active, e);
+            };
+
+            $element.find('input').on('change', function (e) {
+              e.stopPropagation();
+              e.preventDefault();
+
+              $(this).closest('.toggle-button').toggleButtons("toggleState", true);
             });
+
+            $element.find('label').on('mousedown', function (e) {
+              e.stopPropagation();
+              e.preventDefault();
+              console.log('mouse down');
+              $(this).unbind('click');
+              $(this).bind('click', function () {
+                console.log('click');
+                $(this).unbind('click');
+                $(this).bind('click', mainClickFunction);
+                $(this).click();
+                return false;
+              });
+            });
+
+            $element.find('label').on('click', mainClickFunction);
           });
         },
         toggleActivation: function () {
