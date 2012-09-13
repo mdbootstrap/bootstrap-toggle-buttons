@@ -3,120 +3,145 @@
 $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 $white: #FEFEFE;
 $blue: #0088CC;
+$height: 25px;
 
 .toggle-button {
-  display: inline-block;
-  cursor: pointer;
-  background: #0088CC;
-  @include background-image(linear-gradient(top, $blue, #0055CC));
-  @include border-radius(4px);
-  border: 1px solid;
-  border-color: $border;
-  position: relative;
-  bottom: -2px;
-  text-align: left;
-  min-height: 25px;
-  max-height: 25px;
-
-  // disable text selection highlighting
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  &:before, &:after {
-    line-height: 25px;
-    font-weight: bold;
-    letter-spacing: .4px;
-  }
-
-  &:before {
-    color: $white;
-    padding-left: 0%;
-    margin-left: 10px;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
-    content: attr(data-enabled);
-  }
-
-  &.disabled {
-    background: $white;
-    @include background-image(linear-gradient(top, $white, #E6E6E6));
-    border-color: $border;
-    &:before {
-      color: #555555;
-      padding-left: 50%;
-      margin-left: 10px;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-      content: attr(data-disabled);
-    }
-    label {
-      margin-left: -1px;
-      left: 0%;
-    }
-  }
-
-  &.deactivate {
-      @include opacity(0.5);
-      cursor: default !important;
-      label {
-          cursor: default !important;
-      }
-  }
-
-  label {
+    display: inline-block;
     cursor: pointer;
-    position: absolute;
-    width: 50%;
-    height: 25px;
-    background: $white;
-    @include background-image(linear-gradient(top, $white, #E6E6E6));
+    //background: #0088CC;
+    //@include background-image(linear-gradient(top, $blue, #0055CC));
     @include border-radius(4px);
     border: 1px solid;
     border-color: $border;
-    top: -1px;
-    margin-left: 0;
-    left: 50%;
-  }
+    position: relative;
+    //bottom: -2px;
+    text-align: left;
+    min-height: $height;
+    max-height: $height;
+    overflow: hidden;
 
-  input[type=checkbox] {
-    display: none;
-    //debug
-    //position:absolute;
-    //top: 0;
-    //right: -20px;
-  }
+    // disable text selection highlighting
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
-  &.primary, &.info, &.success, &.warning, &.danger {
-    &:before {
-      color: white;
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    //&:before, &:after {
+    //    line-height: 25px;
+    //    font-weight: bold;
+    //    letter-spacing: .4px;
+    //}
+
+    //&:before {
+    //    color: $white;
+    //    padding-left: 0%;
+    //    margin-left: 10px;
+    //    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    //    content: attr(data-enabled);
+    //}
+
+    //    @include background-image(linear-gradient(top, $white, #E6E6E6));
+    //    border-color: $border;
+    //    &:before {
+    //        color: #555555;
+    //        padding-left: 50%;
+    //        margin-left: 10px;
+    //        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    //        content: attr(data-disabled);
+    //    }
+    //    label {
+    //        margin-left: -1px;
+    //        left: 0%;
+    //    }
+    //}
+
+    &.deactivate {
+        @include opacity(0.5);
+        cursor: default !important;
+        label {
+            cursor: default !important;
+        }
     }
-  }
+    > div {
+        display: inline-block;
+        width: 150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        &.disabled {
+            left: -50%;
+        }
+    }
+    input[type=checkbox] {
+        display: none;
 
-  &.primary {
-    background: $blue;
-    @include background-image(linear-gradient(top, $blue, #0055CC));
-  }
-  &.info {
-    $startColor: #5BC0DE;
-    background: $startColor;
-    @include background-image(linear-gradient(top, $startColor, #2F96B4));
-  }
-  &.success {
-    $startColor: #62C462;
-    background: $startColor;
-    @include background-image(linear-gradient(top, $startColor, #51A351));
-  }
-  &.warning {
-    $startColor: #DBB450;
-    background: $startColor;
-    @include background-image(linear-gradient(top, $startColor, #F89406));
-  }
-  &.danger {
-    $startColor: #EE5f5B;
-    background: $startColor;
-    @include background-image(linear-gradient(top, $startColor, #BD362F));
-  }
+        //debug
+        //position:absolute;
+        //top: 0;
+        //right: -20px;
+    }
+
+    span, label {
+        display: inline-block;
+        background: #8a2be2;
+        float: left;
+        height: $height;
+    }
+
+    label {
+        cursor: pointer;
+        background: $white;
+        @include background-image(linear-gradient(top, $white, #E6E6E6));
+        //position: absolute;
+        //width: 50%;
+        //height: 25px;
+        //background: $white;
+        //@include background-image(linear-gradient(top, $white, #E6E6E6));
+        //@include border-radius(4px);
+        //border: 1px solid;
+        //border-color: $border;
+        //top: -1px;
+        //margin-left: 0;
+        //left: 50%;
+    }
+
+    //&.primary, &.info, &.success, &.warning, &.danger {
+    //    &:before {
+    //        color: white;
+    //        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    //    }
+    //}
+    span {
+        color: $white;
+        text-align: center;
+        font-weight: bold;
+        line-height: $height;
+
+        &.primary {
+            background: $blue;
+            @include background-image(linear-gradient(top, $blue, #0055CC));
+        }
+        &.info {
+            $startColor: #5BC0DE;
+            background: $startColor;
+            @include background-image(linear-gradient(top, $startColor, #2F96B4));
+        }
+        &.success {
+            $startColor: #62C462;
+            background: $startColor;
+            @include background-image(linear-gradient(top, $startColor, #51A351));
+        }
+        &.warning {
+            $startColor: #DBB450;
+            background: $startColor;
+            @include background-image(linear-gradient(top, $startColor, #F89406));
+        }
+        &.danger {
+            $startColor: #EE5f5B;
+            background: $startColor;
+            @include background-image(linear-gradient(top, $startColor, #BD362F));
+        }
+    }
 }

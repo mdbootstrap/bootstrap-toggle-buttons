@@ -5,7 +5,7 @@
 
   $.fn.toggleButtons = function (method) {
     var $element
-      , $labelEnabled
+      , $div
       , options
       , active
       , styleActive
@@ -16,21 +16,26 @@
       , methods = {
         init: function (opt) {
           this.each(function () {
+            var $spanLeft
+              , $spanRight;
+
             $element = $(this);
 
             options = $.extend({}, $.fn.toggleButtons.defaults, opt);
 
-            $element.attr("data-enabled", options.label.enabled === undefined ? "ON" : options.label.enabled);
-            $element.attr("data-disabled", options.label.disabled === undefined ? "OFF " : options.label.disabled);
-
             $element.addClass('toggle-button');
 
-            $labelEnabled = $('<label></label>').attr('for', $element.find('input').attr('id'));
-            $element.append($labelEnabled);
+            $spanLeft = $('<span></span>').text(options.label.enabled === undefined ? "ON" : options.label.enabled);
+            $spanRight = $('<span></span>').text(options.label.disabled === undefined ? "OFF " : options.label.disabled);
+            // html layout
+            $div = $element.find('input').wrap($('<div></div>')).parent();
+            $div.append($spanLeft);
+            $div.append($('<label></label>').attr('for', $element.find('input').attr('id')));
+            $div.append($spanRight);
 
             if (options.animated) {
-              $element.addClass('toggle-button-animated');
-
+//              $element.addClass('toggle-button-animated');
+//
               if (options.transitionSpeed !== undefined)
                 if (/^(\d*%$)/.test(options.transitionSpeed))  // is a percent value?
                   transitionSpeed = defaultSpeed * parseInt(options.transitionSpeed) / 100;
@@ -39,11 +44,15 @@
 
               animationCss = ["-webkit-", "-moz-", "-o-", ""];
               $(animationCss).each(function () {
-                $element.find('label').css(this + 'transition', 'all ' + transitionSpeed + 's');
+                $element.find('>div').css(this + 'transition', 'all ' + transitionSpeed + 's');
               });
             }
 
-            $element.css('width', options.width);
+            // size of the bootstrap-toggle-button
+            $element
+              .css('width', options.width * 2)
+              .find('>div').css('width', options.width * 3)
+              .find('>span, >label').css('width', options.width);
 
             active = $element.find('input').is(':checked');
 
@@ -53,13 +62,8 @@
             if ($element.find('input').is(':disabled'))
               $element.addClass('deactivate');
 
-            styleActive = options.style.enabled === undefined ? "" : options.style.enabled;
-            styleDisabled = options.style.disabled === undefined ? "" : options.style.disabled;
-
-            if (active && styleActive !== undefined)
-              $element.addClass(styleActive);
-            if (!active && styleDisabled !== undefined)
-              $element.addClass(styleDisabled);
+            $spanLeft.addClass(options.style.enabled === undefined ? "" : options.style.enabled)
+            $spanRight.addClass(options.style.disabled === undefined ? "" : options.style.disabled)
 
             $element.on('click', function (e) {
               if ($(e.target).is('input'))
@@ -75,18 +79,20 @@
               e.preventDefault();
               console.log('click2')
 
-              $element = $(this).parent();
+              $element = $(this).closest('.toggle-button');
 
               if ($element.is('.deactivate'))
                 return true;
 
-              $element
-                .delay(transitionSpeed * 500).queue(function () {
-                  $(this).toggleClass('disabled')
-                    .toggleClass(styleActive)
-                    .toggleClass(styleDisabled)
-                    .dequeue();
-                });
+
+              $element.find('>div').toggleClass('disabled')
+
+//              $element
+//                .queue(function () {
+//                    .toggleClass(styleActive)
+//                    .toggleClass(styleDisabled)
+//                    .dequeue();
+//                });
 
               active = !($element.find('input').is(':checked'));
 
@@ -104,8 +110,32 @@
             $element.find('label').on('mousedown', function (e) {
               e.stopPropagation();
               e.preventDefault();
-              console.log('mouse down');
               $(this).unbind('click');
+//
+              $(this).on('mousemove', function (e) {
+                var relativeX = e.pageX - $(this).closest('.toggle-button').offset().left;
+//                console.log(relativeX)
+                var percent = (relativeX / (options.width * 2)) * 100;
+//                console.log(percent)
+                if (percent < 16)
+                  percent = 16;
+                else if (percent > 67)
+                  percent = 67;
+//
+//                console.log(percent)
+                $element.find('>div').css('left', percent-(200/3) + "%")
+              });
+
+              $(this).on('mouseleave', function() {
+                var $div = $element.find('>div');
+                $(this).unbind('mousemove');
+
+                if (parseInt($div.css('left')) < -25)
+                  $div.css('left', "-50%");
+                else $div.css('left', "0");
+
+              });
+//
               $(this).bind('click', function () {
                 console.log('click');
                 $(this).unbind('click');
