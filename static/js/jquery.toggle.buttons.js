@@ -1,114 +1,147 @@
 !function ($) {
   "use strict";
-  // version: 1.7
+  // version: 2.0
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   $.fn.toggleButtons = function (method) {
     var $element
-      , $labelEnabled
-      , options
-      , active
-      , styleActive
-      , styleDisabled
-      , animationCss
+      , $div
       , transitionSpeed = 0.05
-      , defaultSpeed = 0.05
       , methods = {
         init: function (opt) {
           this.each(function () {
+            var $spanLeft
+              , $spanRight
+              , options;
+
             $element = $(this);
-
-            options = $.extend({}, $.fn.toggleButtons.defaults, opt);
-
-            $element.attr("data-enabled", options.label.enabled === undefined ? "ON" : options.label.enabled);
-            $element.attr("data-disabled", options.label.disabled === undefined ? "OFF " : options.label.disabled);
-
             $element.addClass('toggle-button');
 
-            $labelEnabled = $('<label></label>').attr('for', $element.find('input').attr('id'));
-            $element.append($labelEnabled);
+            options = $.extend({}, $.fn.toggleButtons.defaults, opt);
+            $(this).data('options', options);
+
+            $spanLeft = $('<span></span>').addClass("labelLeft").text(options.label.enabled === undefined ? "ON" : options.label.enabled);
+            $spanRight = $('<span></span>').addClass("labelRight").text(options.label.disabled === undefined ? "OFF " : options.label.disabled);
+
+            // html layout
+            $div = $element.find('input').wrap($('<div></div>')).parent();
+            $div.append($spanLeft);
+            $div.append($('<label></label>').attr('for', $element.find('input').attr('id')));
+            $div.append($spanRight);
+
+            if ($element.find('input').is(':checked'))
+              $element.find('>div').css('left', "0");
+            else $element.find('>div').css('left', "-50%");
 
             if (options.animated) {
-              $element.addClass('toggle-button-animated');
-
               if (options.transitionSpeed !== undefined)
                 if (/^(\d*%$)/.test(options.transitionSpeed))  // is a percent value?
-                  transitionSpeed = defaultSpeed * parseInt(options.transitionSpeed) / 100;
+                  transitionSpeed = 0.05 * parseInt(options.transitionSpeed) / 100;
                 else
                   transitionSpeed = options.transitionSpeed;
-
-              animationCss = ["-webkit-", "-moz-", "-o-", ""];
-              $(animationCss).each(function () {
-                $element.find('label').css(this + 'transition', 'all ' + transitionSpeed + 's');
-              });
             }
+            else transitionSpeed = 0;
 
-            $element.css('width', options.width);
+            $(this).data('transitionSpeed', transitionSpeed * 1000);
 
-            active = $element.find('input').is(':checked');
 
-            if (!active)
-              $element.addClass('disabled');
+            options["width"] /= 2;
+
+            // size of the bootstrap-toggle-button
+            $element
+              .css('width', options.width * 2)
+              .find('>div').css('width', options.width * 3)
+              .find('>span, >label').css('width', options.width);
 
             if ($element.find('input').is(':disabled'))
-              $element.addClass('deactivate');
+              $(this).addClass('deactivate');
 
-            styleActive = options.style.enabled === undefined ? "" : options.style.enabled;
-            styleDisabled = options.style.disabled === undefined ? "" : options.style.disabled;
+            $spanLeft.addClass(options.style.enabled === undefined ? "" : options.style.enabled)
+            $spanRight.addClass(options.style.disabled === undefined ? "" : options.style.disabled)
 
-            if (active && styleActive !== undefined)
-              $element.addClass(styleActive);
-            if (!active && styleDisabled !== undefined)
-              $element.addClass(styleDisabled);
 
-            $element.on('click', function (e) {
-              if ($(e.target).is('input'))
-                return true;
+            var changeStatus = function ($this) {
+              $this.siblings('label').trigger('mousedown').trigger('mouseup').trigger('click');
+            };
 
-              e.stopPropagation();
-
-              $(this).find('label').click();
+            $spanLeft.on('click', function (e) {
+              changeStatus($(this));
+            });
+            $spanRight.on('click', function (e) {
+              changeStatus($(this));
             });
 
-            $element.find('input').on('change', function (e) {
-              e.stopPropagation();
-              e.preventDefault();
+            $('.toggle-button').find('input').on('change', function (e) {
+              var $element = $(this).parent()
+                , active = $(this).is(':checked')
+                , $toggleButton = $(this).closest('.toggle-button');
 
-              $(this).closest('.toggle-button').toggleButtons("toggleState", true);
+              e.preventDefault();
+              e.stopImmediatePropagation();
+
+              $element.animate({'left': active ? '0' : '-50%'}, $toggleButton.data('transitionSpeed'));
+
+              options = $toggleButton.data('options');
+              options.onChange($element, active, e);
             });
 
-            $element.find('label').on('click', function (e) {
-              e.stopPropagation();
+            $('.toggle-button').find('label').on('mousedown', function (e) {
               e.preventDefault();
+              e.stopImmediatePropagation();
 
-              $element = $(this).parent();
+              if (!$(this).closest('.toggle-button').is('.deactivate')) {
 
-              if ($element.is('.deactivate'))
-                return true;
+                $(this).on('mousemove', function (e) {
+                  var $element = $(this).closest('.toggle-button')
+                    , relativeX = e.pageX - $element.offset().left
+                    , percent = ((relativeX / (options.width * 2)) * 100);
 
-              $element
-                .delay(transitionSpeed * 500).queue(function () {
-                  $(this).toggleClass('disabled')
-                    .toggleClass(styleActive)
-                    .toggleClass(styleDisabled)
-                    .dequeue();
+                  if (percent < 25)
+                    percent = 25;
+                  else if (percent > 75)
+                    percent = 75;
+
+                  $element.find('>div').css('left', (percent - 75) + "%")
                 });
 
-              active = !($element.find('input').is(':checked'));
+                $(this).on('click', function (e) {
+                  var $target = $(e.target)
+                    , $input = $target.siblings('input');
 
-              $element.find('input').attr('checked', active);
-              options.onChange($element, active, e);
+                  e.stopImmediatePropagation();
+                  e.preventDefault();
+                  $(this).unbind('mouseleave');
+
+                  $input.attr('checked', !($input.is(':checked'))).trigger('change');
+                });
+
+                $(this).on('mouseleave', function (e) {
+                  var $myCheckBox = $(this).siblings('input');
+
+                  e.preventDefault();
+                  e.stopImmediatePropagation();
+
+                  $(this).unbind('mouseleave');
+                  $(this).trigger('mouseup');
+
+                  if (parseInt($(this).parent().css('left')) < -25)
+                    $myCheckBox.attr('checked', false);
+                  else $myCheckBox.attr('checked', true);
+
+                  $myCheckBox.trigger('change');
+                });
+
+                $(this).on('mouseup', function (e) {
+                  e.stopImmediatePropagation();
+                  e.preventDefault();
+                  $(this).unbind('mousemove');
+                });
+              }
             });
           });
         },
         toggleActivation: function () {
           $(this).toggleClass('deactivate');
-        },
-        toggleState: function (clickOnAnotherLabel) {
-          if (clickOnAnotherLabel !== undefined)
-            $(this).toggleClass('disabled');
-          else
-            $(this).find('label').click();
         }
       };
 
