@@ -89,8 +89,9 @@
               e.preventDefault();
               e.stopImmediatePropagation();
 
-              if (!$(this).closest('.toggle-button').is('.deactivate')) {
-
+              if ($(this).closest('.toggle-button').is('.deactivate'))
+                $(this).unbind('click');
+              else {
                 $(this).on('mousemove', function (e) {
                   var $element = $(this).closest('.toggle-button')
                     , relativeX = e.pageX - $element.offset().left
