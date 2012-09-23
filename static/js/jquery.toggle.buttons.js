@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 2.1
+  // version: 2.2
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   $.fn.toggleButtons = function (method) {
@@ -47,14 +47,25 @@
 
               options["width"] /= 2;
 
-              // size of the bootstrap-toggle-button
+              // width of the bootstrap-toggle-button
               $element
                 .css('width', options.width * 2)
                 .find('>div').css('width', options.width * 3)
                 .find('>span, >label').css('width', options.width);
 
+              // height of the bootstrap-toggle-button
+              $element
+                .css('height', options.height)
+                .find('span, label')
+                .css('height', options.height)
+                .filter('span')
+                .css('line-height', options.height + "px");
+
               if ($element.find('input').is(':disabled'))
                 $(this).addClass('deactivate');
+
+              $element.find('span').css(options.font);
+
 
               // enabled custom color
               if (options.style.enabled === undefined) {
@@ -183,6 +194,8 @@
     onChange: function () {
     },
     width: 100,
+    height: 25,
+    font: {},
     animated: true,
     transitionSpeed: undefined,
     label: {
@@ -192,15 +205,13 @@
     style: {
       enabled: undefined,
       disabled: undefined,
-      style: {
-        custom: {
-          enabled: undefined,
-          enabledGradient: undefined,
-          enabledColor: "#FFFFFF",
-          disabled: undefined,
-          disabledGradient: undefined,
-          disabledColor: "#FFFFFF"
-        }
+      custom: {
+        enabled: undefined,
+        enabledGradient: undefined,
+        enabledColor: "#FFFFFF",
+        disabled: undefined,
+        disabledGradient: undefined,
+        disabledColor: "#FFFFFF"
       }
     }
   };
