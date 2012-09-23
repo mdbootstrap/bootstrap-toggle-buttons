@@ -12,7 +12,8 @@
           this.each(function () {
               var $spanLeft
                 , $spanRight
-                , options;
+                , options
+                , moving;
 
               $element = $(this);
               $element.addClass('toggle-button');
@@ -120,6 +121,8 @@
               });
 
               $('.toggle-button').find('label').on('mousedown', function (e) {
+                moving = false;
+
                 e.preventDefault();
                 e.stopImmediatePropagation();
 
@@ -130,6 +133,7 @@
                     var $element = $(this).closest('.toggle-button')
                       , relativeX = e.pageX - $element.offset().left
                       , percent = ((relativeX / (options.width * 2)) * 100);
+                    moving = true;
 
                     if (percent < 25)
                       percent = 25;
@@ -141,13 +145,19 @@
 
                   $(this).on('click', function (e) {
                     var $target = $(e.target)
-                      , $input = $target.siblings('input');
+                      , $myCheckBox = $target.siblings('input');
 
                     e.stopImmediatePropagation();
                     e.preventDefault();
                     $(this).unbind('mouseleave');
 
-                    $input.attr('checked', !($input.is(':checked'))).trigger('change');
+                    if (moving)
+                      if (parseInt($(this).parent().css('left')) < -25)
+                        $myCheckBox.attr('checked', false);
+                      else $myCheckBox.attr('checked', true);
+                    else $myCheckBox.attr("checked", !$myCheckBox.is(":checked"));
+
+                    $myCheckBox.trigger('change');
                   });
 
                   $(this).on('mouseleave', function (e) {
