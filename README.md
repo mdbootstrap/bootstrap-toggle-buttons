@@ -1,11 +1,24 @@
-bootstrap-toggle-buttons
+Bootstrap-toggle-buttons
 ========================
 
-live demo: http://www.larentis.eu/bootstrap_toggle_buttons/
+Demo
+----
+http://www.larentis.eu/bootstrap_toggle_buttons/
 
+Usage
+-----
 
-Basic Usage
------------
+Just include Twitter Bootstrap, jQuery and Bootstrap Toggle Buttons CSS and Javascript
+``` html
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+<link href="bootstrap-toggle-buttons.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="jquery.toggle.buttons.js"></script>
+```
+
+Basic Example
+-------------
 
 HTML
 ``` html
