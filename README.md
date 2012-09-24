@@ -58,7 +58,7 @@ $('#toggle-button').toggleButtons({
     'font-style': 'italic'
   },
   animated: true,
-  transitionSpeed: 1, // Accepted values float or "percent" [ 1, 0.5, "150%" ]
+  transitionspeed: 1, // Accepted values float or "percent" [ 1, 0.5, "150%" ]
   label: {
     enabled: "ON",
     disabled: "OFF"
@@ -68,15 +68,38 @@ $('#toggle-button').toggleButtons({
     enabled: "primary",
     disabled: "danger",
     custom: {
-      enabled: "#FF00FF",
-      enabledGradient: "#D300D3",
-      enabledColor: "#FFFFFF",
-      disabled: "#FFAA00",
-      disabledGradient: "#DD9900",
-      disabledColor: "#333333"
+      enabled: {
+        background:"#FF00FF",
+        gradient: "#D300D3",
+        color: "#FFFFFF"
+      },
+      disabled: {
+        background: "#FFAA00",
+        gradient: "#DD9900",
+        color: "#333333"
+      }
     }
   }
 });
 
 $('#toggle-button').toggleButtons('toggleActivation'); // to toggle the disabled status
+```
+
+Data Attributes Example
+-----------------------
+
+HTML
+``` html
+<div id="data-attribute-toggle-button"
+     data-toggleButton-width="170"
+     data-toggleButton-transitionspeed="500%"
+     data-toggleButton-style-custom-enabled-background="#FF0000"
+     data-toggleButton-style-custom-enabled-gradient="#000000">
+    <input type="checkbox" checked="checked">
+</div>
+```
+
+JS
+``` javascript
+$('#data-attribute-toggle-button').toggleButtons();
 ```

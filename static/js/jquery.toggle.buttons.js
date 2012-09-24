@@ -1,7 +1,13 @@
 !function ($) {
   "use strict";
-  // version: 2.2
+  // version: 2.3
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
+
+  var addToAttribute = function (obj, array, value) {
+    for (var i = 0, length = array.length; i < length; i++) {
+      obj = obj[array[i]] = obj[array[i]] || i == ( length - 1) ? value : {}
+    }
+  };
 
   $.fn.toggleButtons = function (method) {
     var $element
@@ -13,12 +19,29 @@
               var $spanLeft
                 , $spanRight
                 , options
-                , moving;
+                , moving
+                , dataAttribute = {};
 
               $element = $(this);
               $element.addClass('toggle-button');
 
-              options = $.extend({}, $.fn.toggleButtons.defaults, opt);
+              $.each($element.data(), function (i, el) {
+                var key
+                  , tmp = {};
+
+                if (i.indexOf("togglebutton") === 0) {
+                  key = i.match(/[A-Z][a-z]+/g);
+                  key = jQuery.map(key, function (n) {
+                    return (n.toLowerCase());
+                  });
+
+                  addToAttribute(tmp, key, el);
+                  dataAttribute = $.extend(true, dataAttribute, tmp);
+                }
+              });
+
+              options = $.extend(true, {}, $.fn.toggleButtons.defaults, opt, dataAttribute);
+
               $(this).data('options', options);
 
               $spanLeft = $('<span></span>').addClass("labelLeft").text(options.label.enabled === undefined ? "ON" : options.label.enabled);
@@ -35,11 +58,11 @@
               else $element.find('>div').css('left', "-50%");
 
               if (options.animated) {
-                if (options.transitionSpeed !== undefined)
-                  if (/^(\d*%$)/.test(options.transitionSpeed))  // is a percent value?
-                    transitionSpeed = 0.05 * parseInt(options.transitionSpeed) / 100;
+                if (options.transitionspeed !== undefined)
+                  if (/^(\d*%$)/.test(options.transitionspeed))  // is a percent value?
+                    transitionSpeed = 0.05 * parseInt(options.transitionspeed) / 100;
                   else
-                    transitionSpeed = options.transitionSpeed;
+                    transitionSpeed = options.transitionspeed;
               }
               else transitionSpeed = 0;
 
@@ -70,12 +93,12 @@
 
               // enabled custom color
               if (options.style.enabled === undefined) {
-                if (options.style.custom !== undefined && options.style.custom.enabled !== undefined) {
-                  $spanLeft.css('color', options.style.custom.enabledColor);
-                  if (options.style.custom.enabledGradient === undefined)
-                    $spanLeft.css('background', options.style.custom.enabled);
+                if (options.style.custom !== undefined && options.style.custom.enabled !== undefined && options.style.custom.enabled.background !== undefined) {
+                  $spanLeft.css('color', options.style.custom.enabled.color);
+                  if (options.style.custom.enabled.gradient === undefined)
+                    $spanLeft.css('background', options.style.custom.enabled.background);
                   else $.each(["-webkit-", "-moz-", "-o-", ""], function (i, el) {
-                    $spanLeft.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.enabled + ',' + options.style.custom.enabledGradient + ')');
+                    $spanLeft.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.enabled.background + ',' + options.style.custom.enabled.gradient + ')');
                   });
                 }
               }
@@ -83,17 +106,16 @@
 
               // disabled custom color
               if (options.style.disabled === undefined) {
-                if (options.style.custom !== undefined && options.style.custom.disabled !== undefined) {
-                  $spanRight.css('color', options.style.custom.disabledColor);
-                  if (options.style.custom.disabledGradient === undefined)
-                    $spanRight.css('background', options.style.custom.disabled);
+                if (options.style.custom !== undefined && options.style.custom.disabled !== undefined && options.style.custom.disabled.background !== undefined) {
+                  $spanRight.css('color', options.style.custom.disabled.color);
+                  if (options.style.custom.disabled.gradient === undefined)
+                    $spanRight.css('background', options.style.custom.disabled.background);
                   else $.each(["-webkit-", "-moz-", "-o-", ""], function (i, el) {
-                    $spanRight.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.disabled + ',' + options.style.custom.disabledGradient + ')');
+                    $spanRight.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.disabled.background + ',' + options.style.custom.disabled.gradient + ')');
                   });
                 }
               }
               else $spanRight.addClass(options.style.disabled);
-
 
               var changeStatus = function ($this) {
                 $this.siblings('label').trigger('mousedown').trigger('mouseup').trigger('click');
@@ -207,7 +229,7 @@
     height: 25,
     font: {},
     animated: true,
-    transitionSpeed: undefined,
+    transitionspeed: undefined,
     label: {
       enabled: undefined,
       disabled: undefined
@@ -216,12 +238,16 @@
       enabled: undefined,
       disabled: undefined,
       custom: {
-        enabled: undefined,
-        enabledGradient: undefined,
-        enabledColor: "#FFFFFF",
-        disabled: undefined,
-        disabledGradient: undefined,
-        disabledColor: "#FFFFFF"
+        enabled: {
+          background: undefined,
+          gradient: undefined,
+          color: "#FFFFFF"
+        },
+        disabled: {
+          background: undefined,
+          gradient: undefined,
+          color: "#FFFFFF"
+        }
       }
     }
   };
