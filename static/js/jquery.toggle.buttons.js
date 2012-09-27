@@ -58,7 +58,6 @@
               else $element.find('>div').css('left', "-50%");
 
               if (options.animated) {
-                console.log(options.transitionspeed)
                 if (options.transitionspeed !== undefined)
                   if (/^(\d*%$)/.test(options.transitionspeed))  // is a percent value?
                     transitionSpeed = 0.05 * parseInt(options.transitionspeed) / 100;
