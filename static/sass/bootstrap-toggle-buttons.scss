@@ -1,12 +1,11 @@
 @import "compass/css3";
 
-// version: 2.0
+// version: 2.3
 // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
 $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 $white: #FEFEFE;
 $blue: #0088CC;
-$height: 25px;
 $border-radius: 4px;
 
 .toggle-button {
@@ -17,8 +16,6 @@ $border-radius: 4px;
   border-color: $border;
   position: relative;
   text-align: left;
-  min-height: $height;
-  max-height: $height;
   overflow: hidden;
 
   // disable text selection highlighting
@@ -41,7 +38,6 @@ $border-radius: 4px;
     width: 150px;
     position: absolute;
     top: 0;
-    //left: 0;
     &.disabled {
       left: -50%;
     }
@@ -59,7 +55,6 @@ $border-radius: 4px;
     position: relative;
     float: left;
     display: inline-block;
-    height: $height;
   }
 
   label {
@@ -78,7 +73,6 @@ $border-radius: 4px;
     color: $white;
     text-align: center;
     font-weight: bold;
-    line-height: $height;
     z-index: 1;
 
     &.labelLeft {
