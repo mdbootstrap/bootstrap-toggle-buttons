@@ -84,38 +84,38 @@ $border-radius: 4px;
       @include border-top-right-radius($border-radius);
       @include border-bottom-right-radius($border-radius);
       color: black;
-      @include background-image(linear-gradient(top, $white, #E6E6E6));
+      @include background-image(linear-gradient(bottom, $white, #E6E6E6));
       padding-right: 3px;
     }
 
     &.primary, &.labelLeft {
       color: $white;
       background: $blue;
-      @include background-image(linear-gradient(top, $blue, #0055CC));
+      @include background-image(linear-gradient(bottom, $blue, #0055CC));
     }
     &.info {
       $startColor: #5BC0DE;
       color: $white;
       background: $startColor;
-      @include background-image(linear-gradient(top, $startColor, #2F96B4));
+      @include background-image(linear-gradient(bottom, $startColor, #2F96B4));
     }
     &.success {
       $startColor: #62C462;
       color: $white;
       background: $startColor;
-      @include background-image(linear-gradient(top, $startColor, #51A351));
+      @include background-image(linear-gradient(bottom, $startColor, #51A351));
     }
     &.warning {
       $startColor: #DBB450;
       color: $white;
       background: $startColor;
-      @include background-image(linear-gradient(top, $startColor, #F89406));
+      @include background-image(linear-gradient(bottom, $startColor, #F89406));
     }
     &.danger {
       $startColor: #EE5f5B;
       color: $white;
       background: $startColor;
-      @include background-image(linear-gradient(top, $startColor, #BD362F));
+      @include background-image(linear-gradient(bottom, $startColor, #BD362F));
     }
   }
 }
