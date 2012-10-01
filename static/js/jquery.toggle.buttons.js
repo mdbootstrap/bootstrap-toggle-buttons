@@ -136,7 +136,7 @@
                 e.preventDefault();
                 e.stopImmediatePropagation();
 
-                $element.animate({'left': active ? '0' : '-50%'}, $toggleButton.data('transitionSpeed'));
+                $element.stop().animate({'left': active ? '0' : '-50%'}, $toggleButton.data('transitionSpeed'));
 
                 options = $toggleButton.data('options');
                 options.onChange($element, active, e);
