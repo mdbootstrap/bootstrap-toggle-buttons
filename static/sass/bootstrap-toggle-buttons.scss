@@ -8,7 +8,7 @@ $white: #FEFEFE;
 $blue: #0088CC;
 $border-radius: 4px;
 
-.toggle-button {
+.switch {
   display: inline-block;
   cursor: pointer;
   @include border-radius(5px);
@@ -17,6 +17,7 @@ $border-radius: 4px;
   position: relative;
   text-align: left;
   overflow: hidden;
+  min-width: 100px;
 
   // disable text selection highlighting
   -webkit-touch-callout: none;
@@ -35,11 +36,17 @@ $border-radius: 4px;
   }
   > div {
     display: inline-block;
-    width: 150px;
-    position: absolute;
+    width: 150%;
+    position: relative;
     top: 0;
-    &.disabled {
-      left: -50%;
+
+    @include transition(left 0.5s);
+
+    &.btn-off {
+      left: -46%;
+    }
+    &.btn-on {
+      left: 0%;
     }
   }
   input[type=checkbox] {
@@ -53,16 +60,39 @@ $border-radius: 4px;
   span, label {
     cursor: pointer;
     position: relative;
-    float: left;
+    //float: left;
     display: inline-block;
+    width: 33.3%;
+    height: 100%;
+
+    padding-bottom: 4px;
+    padding-top: 4px;
+    font-size: 14px;
+    line-height: 20px;
+
+    padding-left: $border-radius/2;
+    padding-right: $border-radius/2;
+
+    &.switch-small {
+      padding-bottom: 3px;
+      padding-top: 3px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    &.switch-large {
+      padding-bottom: 9px;
+      padding-top: 9px;
+      font-size: 16px;
+      line-height: normal;
+    }
+
   }
 
   label {
     background: $white;
-    margin-left: -$border-radius;
-    margin-right: -$border-radius;
     border: 1px solid #E6E6E6;
-    margin-top: -1px;
+    margin: -1px -$border-radius;
     z-index: 100;
 
     @include background-image(linear-gradient(top, $white, #E6E6E6));
@@ -72,20 +102,22 @@ $border-radius: 4px;
   span {
     color: $white;
     text-align: center;
-    font-weight: bold;
+    //font-weight: bold;
     z-index: 1;
+
+    @include box-sizing(border-box);
 
     &.labelLeft {
       @include border-top-left-radius($border-radius);
       @include border-bottom-left-radius($border-radius);
-      padding-left: 3px;
+      //padding-left: 3px;
     }
     &.labelRight {
       @include border-top-right-radius($border-radius);
       @include border-bottom-right-radius($border-radius);
       color: black;
       @include background-image(linear-gradient(top, $white, #E6E6E6));
-      padding-right: 3px;
+      //padding-right: 3px;
     }
 
     &.primary, &.labelLeft {

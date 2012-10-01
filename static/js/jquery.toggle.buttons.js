@@ -12,110 +12,97 @@
   $.fn.toggleButtons = function (method) {
     var $element
       , $div
-      , transitionSpeed = 0.05
       , methods = {
         init: function (opt) {
           this.each(function () {
               var $spanLeft
                 , $spanRight
+                , $label
                 , options
                 , moving
-                , dataAttribute = {};
+                , myClasses = "";
 
               $element = $(this);
-              $element.addClass('toggle-button');
 
-              $.each($element.data(), function (i, el) {
-                var key
-                  , tmp = {};
+              var classes = $element.attr('class');
 
-                if (i.indexOf("togglebutton") === 0) {
-                  key = i.match(/[A-Z][a-z]+/g);
-                  key = jQuery.map(key, function (n) {
-                    return (n.toLowerCase());
-                  });
-
-                  addToAttribute(tmp, key, el);
-                  dataAttribute = $.extend(true, dataAttribute, tmp);
+              $.each(['switch-small', 'switch-large'], function (i, el) {
+                if (classes.indexOf(el) >= 0) {
+                  myClasses = el;
+                  $element.removeClass(el);
                 }
               });
 
-              options = $.extend(true, {}, $.fn.toggleButtons.defaults, opt, dataAttribute);
+              console.log("====>", classes, "===", myClasses, $element)
 
-              $(this).data('options', options);
+              $spanLeft = $('<span></span>')
+                .addClass("labelLeft")
+                .addClass(myClasses)
+                .text("ON");
 
-              $spanLeft = $('<span></span>').addClass("labelLeft").text(options.label.enabled === undefined ? "ON" : options.label.enabled);
-              $spanRight = $('<span></span>').addClass("labelRight").text(options.label.disabled === undefined ? "OFF " : options.label.disabled);
+              $spanRight = $('<span></span>')
+                .addClass("labelRight")
+                .addClass(myClasses)
+                .text("OFF");
+
+              $label = $('<label></label>')
+                .html("&nbsp;")
+                .addClass(myClasses)
+                .attr('for', $element.find('input').attr('id'))
+
 
               // html layout
               $div = $element.find('input').wrap($('<div></div>')).parent();
               $div.append($spanLeft);
-              $div.append($('<label></label>').attr('for', $element.find('input').attr('id')));
+              $div.append($label);
               $div.append($spanRight);
 
-              if ($element.find('input').is(':checked'))
-                $element.find('>div').css('left', "0");
-              else $element.find('>div').css('left', "-50%");
+//              if ($element.find('input').is(':checked'))
+//                $element.find('>div').css('left', "0");
+//              else $element.find('>div').css('left', "-46%");
 
-              if (options.animated) {
-                if (options.transitionspeed !== undefined)
-                  if (/^(\d*%$)/.test(options.transitionspeed))  // is a percent value?
-                    transitionSpeed = 0.05 * parseInt(options.transitionspeed) / 100;
-                  else
-                    transitionSpeed = options.transitionspeed;
-              }
-              else transitionSpeed = 0;
-
-              $(this).data('transitionSpeed', transitionSpeed * 1000);
-
-
-              options["width"] /= 2;
-
-              // width of the bootstrap-toggle-button
-              $element
-                .css('width', options.width * 2)
-                .find('>div').css('width', options.width * 3)
-                .find('>span, >label').css('width', options.width);
-
-              // height of the bootstrap-toggle-button
-              $element
-                .css('height', options.height)
-                .find('span, label')
-                .css('height', options.height)
-                .filter('span')
-                .css('line-height', options.height + "px");
+//              if (options.animated) {
+//                if (options.transitionspeed !== undefined)
+//                  if (/^(\d*%$)/.test(options.transitionspeed))  // is a percent value?
+//                    transitionSpeed = 0.05 * parseInt(options.transitionspeed) / 100;
+//                  else
+//                    transitionSpeed = options.transitionspeed;
+//              }
+//              else transitionSpeed = 0;
+//
+//              $(this).data('transitionSpeed', transitionSpeed * 1000);
 
               if ($element.find('input').is(':disabled'))
                 $(this).addClass('deactivate');
 
-              $element.find('span').css(options.font);
+//              $element.find('span').css(options.font);
 
 
               // enabled custom color
-              if (options.style.enabled === undefined) {
-                if (options.style.custom !== undefined && options.style.custom.enabled !== undefined && options.style.custom.enabled.background !== undefined) {
-                  $spanLeft.css('color', options.style.custom.enabled.color);
-                  if (options.style.custom.enabled.gradient === undefined)
-                    $spanLeft.css('background', options.style.custom.enabled.background);
-                  else $.each(["-webkit-", "-moz-", "-o-", ""], function (i, el) {
-                    $spanLeft.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.enabled.background + ',' + options.style.custom.enabled.gradient + ')');
-                  });
-                }
-              }
-              else $spanLeft.addClass(options.style.enabled);
+//              if (options.style.enabled === undefined) {
+//                if (options.style.custom !== undefined && options.style.custom.enabled !== undefined && options.style.custom.enabled.background !== undefined) {
+//                  $spanLeft.css('color', options.style.custom.enabled.color);
+//                  if (options.style.custom.enabled.gradient === undefined)
+//                    $spanLeft.css('background', options.style.custom.enabled.background);
+//                  else $.each(["-webkit-", "-moz-", "-o-", ""], function (i, el) {
+//                    $spanLeft.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.enabled.background + ',' + options.style.custom.enabled.gradient + ')');
+//                  });
+//                }
+//              }
+//              else $spanLeft.addClass(options.style.enabled);
 
               // disabled custom color
-              if (options.style.disabled === undefined) {
-                if (options.style.custom !== undefined && options.style.custom.disabled !== undefined && options.style.custom.disabled.background !== undefined) {
-                  $spanRight.css('color', options.style.custom.disabled.color);
-                  if (options.style.custom.disabled.gradient === undefined)
-                    $spanRight.css('background', options.style.custom.disabled.background);
-                  else $.each(["-webkit-", "-moz-", "-o-", ""], function (i, el) {
-                    $spanRight.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.disabled.background + ',' + options.style.custom.disabled.gradient + ')');
-                  });
-                }
-              }
-              else $spanRight.addClass(options.style.disabled);
+//              if (options.style.disabled === undefined) {
+//                if (options.style.custom !== undefined && options.style.custom.disabled !== undefined && options.style.custom.disabled.background !== undefined) {
+//                  $spanRight.css('color', options.style.custom.disabled.color);
+//                  if (options.style.custom.disabled.gradient === undefined)
+//                    $spanRight.css('background', options.style.custom.disabled.background);
+//                  else $.each(["-webkit-", "-moz-", "-o-", ""], function (i, el) {
+//                    $spanRight.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.disabled.background + ',' + options.style.custom.disabled.gradient + ')');
+//                  });
+//                }
+//              }
+//              else $spanRight.addClass(options.style.disabled);
 
               var changeStatus = function ($this) {
                 $this.siblings('label').trigger('mousedown').trigger('mouseup').trigger('click');
@@ -128,7 +115,7 @@
                 changeStatus($(this));
               });
 
-              $('.toggle-button').find('input').on('change', function (e) {
+              $element.find('input').on('change', function (e) {
                 var $element = $(this).parent()
                   , active = $(this).is(':checked')
                   , $toggleButton = $(this).closest('.toggle-button');
@@ -136,13 +123,17 @@
                 e.preventDefault();
                 e.stopImmediatePropagation();
 
-                $element.stop().animate({'left': active ? '0' : '-50%'}, $toggleButton.data('transitionSpeed'));
+                if (active)
+                  $element.removeClass('btn-off').addClass('btn-on');
+                else $element.removeClass('btn-on').addClass('btn-off');
 
-                options = $toggleButton.data('options');
-                options.onChange($element, active, e);
+//                $element.stop().animate({'left': active ? '0' : '-46%'}, $toggleButton.data('transitionSpeed'));
+
+//                options = $toggleButton.data('options');
+//                options.onChange($element, active, e);
               });
 
-              $('.toggle-button').find('label').on('mousedown', function (e) {
+              $element.find('label').on('mousedown', function (e) {
                 moving = false;
 
                 e.preventDefault();
@@ -152,9 +143,12 @@
                   $(this).unbind('click');
                 else {
                   $(this).on('mousemove', function (e) {
-                    var $element = $(this).closest('.toggle-button')
+                    var $element = $(this).closest('.switch')
                       , relativeX = e.pageX - $element.offset().left
-                      , percent = ((relativeX / (options.width * 2)) * 100);
+//                    console.log(e.pageX - $element.offset().left)
+                      , percent = relativeX-25;
+
+                    console.log(percent)
                     moving = true;
 
                     if (percent < 25)
@@ -225,11 +219,11 @@
   $.fn.toggleButtons.defaults = {
     onChange: function () {
     },
-    width: 100,
-    height: 25,
+//    width: 100,
+//    height: 25,
     font: {},
     animated: true,
-    transitionspeed: undefined,
+//    transitionspeed: undefined,
     label: {
       enabled: undefined,
       disabled: undefined
