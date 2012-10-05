@@ -209,6 +209,16 @@
           )
           ;
         },
+        
+        toggleState: function() {
+          $(this).siblings('label').trigger('mousedown').trigger('mouseup').trigger('click');
+        },
+
+        set: function(state) {
+          if (state != $(this).find('input').is(':checked') )
+            $(this).toggleButtons('toggleState');
+        },
+        
         toggleActivation: function () {
           $(this).toggleClass('deactivate');
         }
