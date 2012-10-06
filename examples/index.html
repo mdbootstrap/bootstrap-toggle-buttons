@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap toggle buttons 2.3</title>
+    <title>Bootstrap toggle buttons 2.5</title>
     <meta name="author" content="Mattia Larentis">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8;" />
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css"
@@ -43,7 +43,7 @@
 <div class="container-fluid">
 <div class="row-fluid">
     <div class="span12">
-        <h1>Bootstrap toggle buttons 2.3
+        <h1>Bootstrap toggle buttons 2.5
             <small>- by Mattia Larentis</small>
         </h1>
     </div>
@@ -509,6 +509,36 @@ $('#data-attribute-toggle-button').toggleButtons();
 </pre>
     </div>
 </div>
+<div class="row-fluid">
+    <div class="span12">
+        <h3>Toggle State</h3>
+        <hr>
+    </div>
+</div>
+<div class="row-fluid">
+
+    <div class="span4">
+        <div id="toggle-state-toggle-button">
+            <input type="checkbox" checked="checked">
+        </div>
+        <br>
+        <div id="toggle-state-toggle-button-button" class="btn btn-primary">Toggle me!</div>
+    </div>
+    <div class="span8">
+
+        <h4>Html:</h4>
+<pre class="prettyprint linenums">
+&lt;div id="toggle-state-toggle-button">
+    &lt;input type="checkbox" checked="checked">
+&lt;/div></pre>
+        <h4>Js:</h4>
+<pre class="prettyprint linenums">
+$('#toggle-state-toggle-button').toggleButtons();
+
+$('#toggle-state-toggle-button').toggleButtons('toggleState');  // to toggle the state of the toggle button
+</pre>
+    </div>
+</div>
 
 <p class="pull-right">
     <a href="https://twitter.com/SpiritualGuru">follow me</a> -
@@ -633,6 +663,12 @@ $('#data-attribute-toggle-button').toggleButtons();
     });
 
     $('#data-attribute-toggle-button').toggleButtons();
+
+    $('#toggle-state-toggle-button').toggleButtons();
+
+    $('#toggle-state-toggle-button-button').on('click', function () {
+        $('#toggle-state-toggle-button').toggleButtons('toggleState');
+    });
 </script>
 
 </body>

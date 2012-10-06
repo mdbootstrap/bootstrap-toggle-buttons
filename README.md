@@ -103,3 +103,10 @@ JS
 ``` javascript
 $('#data-attribute-toggle-button').toggleButtons();
 ```
+
+Toggle state
+------------
+JS
+``` javascript
+$('#my-toggle-button').toggleButtons('toggleState');
+```
