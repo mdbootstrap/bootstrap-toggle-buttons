@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 2.5
+  // version: 2.6
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   var addToAttribute = function (obj, array, value) {
@@ -215,6 +215,9 @@
         toggleState: function () {
           var $input = $(this).find('input');
           $input.attr('checked', !$input.is(':checked')).trigger('change')
+        },
+        setState: function(value) {
+          $(this).find('input').attr('checked', value).trigger('change')
         }
       };
 

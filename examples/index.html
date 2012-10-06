@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bootstrap toggle buttons 2.5</title>
+    <title>Bootstrap toggle buttons 2.6</title>
     <meta name="author" content="Mattia Larentis">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8;" />
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css"
@@ -43,7 +43,7 @@
 <div class="container-fluid">
 <div class="row-fluid">
     <div class="span12">
-        <h1>Bootstrap toggle buttons 2.5
+        <h1>Bootstrap toggle buttons 2.6
             <small>- by Mattia Larentis</small>
         </h1>
     </div>
@@ -522,7 +522,10 @@ $('#data-attribute-toggle-button').toggleButtons();
             <input type="checkbox" checked="checked">
         </div>
         <br>
+
+        <div id="toggle-state-toggle-button-on" class="btn btn-primary">ON!</div>
         <div id="toggle-state-toggle-button-button" class="btn btn-primary">Toggle me!</div>
+        <div id="toggle-state-toggle-button-off" class="btn btn-primary">OFF!</div>
     </div>
     <div class="span8">
 
@@ -536,6 +539,7 @@ $('#data-attribute-toggle-button').toggleButtons();
 $('#toggle-state-toggle-button').toggleButtons();
 
 $('#toggle-state-toggle-button').toggleButtons('toggleState');  // to toggle the state of the toggle button
+$('#toggle-state-toggle-button').toggleButtons('setState', false); // true || false
 </pre>
     </div>
 </div>
@@ -668,6 +672,14 @@ $('#toggle-state-toggle-button').toggleButtons('toggleState');  // to toggle the
 
     $('#toggle-state-toggle-button-button').on('click', function () {
         $('#toggle-state-toggle-button').toggleButtons('toggleState');
+    });
+
+    $('#toggle-state-toggle-button-on').on('click', function () {
+        $('#toggle-state-toggle-button').toggleButtons('setState', true);
+    });
+
+    $('#toggle-state-toggle-button-off').on('click', function () {
+        $('#toggle-state-toggle-button').toggleButtons('setState', false);
     });
 </script>
 
