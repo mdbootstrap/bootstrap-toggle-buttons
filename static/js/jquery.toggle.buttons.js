@@ -1,5 +1,5 @@
 !function ($) {
-//  "use strict";
+  "use strict";
   // version: 2.4
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 

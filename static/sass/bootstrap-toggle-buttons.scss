@@ -1,6 +1,6 @@
 @import "compass/css3";
 
-// version: 2.3
+// version: 2.4
 // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
 $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
@@ -91,7 +91,7 @@ $border-radius: 4px;
     &.primary, &.labelLeft {
       color: $white;
       background: $blue;
-      @include background-image(linear-gradient(top, $blue, #0055CC));
+      @include background-image(linear-gradient(bottom, $blue, #0055CC));
     }
     &.info {
       $startColor: #5BC0DE;
