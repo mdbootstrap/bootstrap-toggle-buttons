@@ -83,6 +83,7 @@ $('#toggle-button').toggleButtons({
 });
 
 $('#toggle-button').toggleButtons('toggleActivation'); // to toggle the disabled status
+$('#toggle-button').toggleButtons('set', true); // to set the state of the button
 ```
 
 Data Attributes Example
