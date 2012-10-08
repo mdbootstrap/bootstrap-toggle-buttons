@@ -85,7 +85,7 @@
           if ($this.closest('.switch').is('.deactivate'))
             $this.unbind('click');
           else {
-            $this.on('mousemove', function (e) {
+            $this.on('mousemove touchmove', function (e) {
               var $element = $(this).closest('.switch')
                 , percent = (((e.pageX - $element.offset().left) / $element.width()) * 100)
                 , left = 25
