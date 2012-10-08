@@ -1,4 +1,4 @@
-/* line 11, ../sass/bootstrap-toggle-buttons.scss */
+/* line 12, ../sass/bootstrap-toggle-buttons.scss */
 .switch {
   display: inline-block;
   cursor: pointer;
@@ -13,6 +13,7 @@
   text-align: left;
   overflow: hidden;
   min-width: 100px;
+  line-height: 8px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -20,45 +21,51 @@
   -ms-user-select: none;
   user-select: none;
 }
-/* line 30, ../sass/bootstrap-toggle-buttons.scss */
+/* line 32, ../sass/bootstrap-toggle-buttons.scss */
 .switch.deactivate {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
   cursor: default !important;
 }
-/* line 33, ../sass/bootstrap-toggle-buttons.scss */
+/* line 35, ../sass/bootstrap-toggle-buttons.scss */
 .switch.deactivate label, .switch.deactivate span {
   cursor: default !important;
 }
-/* line 37, ../sass/bootstrap-toggle-buttons.scss */
+/* line 39, ../sass/bootstrap-toggle-buttons.scss */
 .switch > div {
   display: inline-block;
   width: 150%;
   position: relative;
   top: 0;
+}
+/* line 45, ../sass/bootstrap-toggle-buttons.scss */
+.switch > div.switch-animate {
   -webkit-transition: left 0.5s;
   -moz-transition: left 0.5s;
   -o-transition: left 0.5s;
   transition: left 0.5s;
 }
-/* line 45, ../sass/bootstrap-toggle-buttons.scss */
-.switch > div.btn-off {
-  left: -46%;
-}
 /* line 48, ../sass/bootstrap-toggle-buttons.scss */
-.switch > div.btn-on {
+.switch > div.switch-off {
+  left: -50%;
+}
+/* line 51, ../sass/bootstrap-toggle-buttons.scss */
+.switch > div.switch-on {
   left: 0%;
 }
-/* line 52, ../sass/bootstrap-toggle-buttons.scss */
+/* line 55, ../sass/bootstrap-toggle-buttons.scss */
 .switch input[type=checkbox] {
   display: none;
 }
-/* line 60, ../sass/bootstrap-toggle-buttons.scss */
+/* line 63, ../sass/bootstrap-toggle-buttons.scss */
 .switch span, .switch label {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   cursor: pointer;
   position: relative;
   display: inline-block;
-  width: 33.3%;
+  width: 33.3333333333%;
   height: 100%;
   padding-bottom: 4px;
   padding-top: 4px;
@@ -67,48 +74,47 @@
   padding-left: 2px;
   padding-right: 2px;
 }
-/* line 76, ../sass/bootstrap-toggle-buttons.scss */
+/* line 80, ../sass/bootstrap-toggle-buttons.scss */
+.switch span.switch-mini, .switch label.switch-mini {
+  padding-bottom: 2px;
+  padding-top: 2px;
+  font-size: 10px;
+  line-height: 9px;
+}
+/* line 87, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.switch-small, .switch label.switch-small {
   padding-bottom: 3px;
   padding-top: 3px;
   font-size: 12px;
   line-height: 18px;
 }
-/* line 83, ../sass/bootstrap-toggle-buttons.scss */
+/* line 94, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.switch-large, .switch label.switch-large {
   padding-bottom: 9px;
   padding-top: 9px;
   font-size: 16px;
   line-height: normal;
 }
-/* line 92, ../sass/bootstrap-toggle-buttons.scss */
+/* line 103, ../sass/bootstrap-toggle-buttons.scss */
 .switch label {
   background: #fefefe;
-  border: 1px solid #E6E6E6;
-  margin: -5px;
+  margin-top: -1px;
+  margin-bottom: -1px;
   z-index: 100;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fefefe), color-stop(100%, #e6e6e6));
   background-image: -webkit-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: -moz-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: -o-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: linear-gradient(top, #fefefe, #e6e6e6);
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
 }
-/* line 102, ../sass/bootstrap-toggle-buttons.scss */
+/* line 112, ../sass/bootstrap-toggle-buttons.scss */
 .switch span {
   color: #fefefe;
   text-align: center;
   z-index: 1;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
 }
-/* line 110, ../sass/bootstrap-toggle-buttons.scss */
-.switch span.labelLeft {
+/* line 120, ../sass/bootstrap-toggle-buttons.scss */
+.switch span.switch-left {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
@@ -116,68 +122,68 @@
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-/* line 115, ../sass/bootstrap-toggle-buttons.scss */
-.switch span.labelRight {
+/* line 124, ../sass/bootstrap-toggle-buttons.scss */
+.switch span.switch-right {
+  color: black;
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
   -moz-border-radius-bottomright: 4px;
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  color: black;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fefefe), color-stop(100%, #e6e6e6));
-  background-image: -webkit-linear-gradient(top, #fefefe, #e6e6e6);
-  background-image: -moz-linear-gradient(top, #fefefe, #e6e6e6);
-  background-image: -o-linear-gradient(top, #fefefe, #e6e6e6);
-  background-image: linear-gradient(top, #fefefe, #e6e6e6);
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #fefefe), color-stop(100%, #e6e6e6));
+  background-image: -webkit-linear-gradient(bottom, #fefefe, #e6e6e6);
+  background-image: -moz-linear-gradient(bottom, #fefefe, #e6e6e6);
+  background-image: -o-linear-gradient(bottom, #fefefe, #e6e6e6);
+  background-image: linear-gradient(bottom, #fefefe, #e6e6e6);
 }
-/* line 123, ../sass/bootstrap-toggle-buttons.scss */
-.switch span.primary, .switch span.labelLeft {
+/* line 131, ../sass/bootstrap-toggle-buttons.scss */
+.switch span.primary, .switch span.switch-left {
   color: #fefefe;
   background: #0088cc;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0088cc), color-stop(100%, #0055cc));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0055cc);
-  background-image: -moz-linear-gradient(top, #0088cc, #0055cc);
-  background-image: -o-linear-gradient(top, #0088cc, #0055cc);
-  background-image: linear-gradient(top, #0088cc, #0055cc);
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #0088cc), color-stop(100%, #0055cc));
+  background-image: -webkit-linear-gradient(bottom, #0088cc, #0055cc);
+  background-image: -moz-linear-gradient(bottom, #0088cc, #0055cc);
+  background-image: -o-linear-gradient(bottom, #0088cc, #0055cc);
+  background-image: linear-gradient(bottom, #0088cc, #0055cc);
 }
-/* line 128, ../sass/bootstrap-toggle-buttons.scss */
+/* line 136, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.info {
   color: #fefefe;
   background: #5bc0de;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5bc0de), color-stop(100%, #2f96b4));
-  background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
-  background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
-  background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
-  background-image: linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #5bc0de), color-stop(100%, #2f96b4));
+  background-image: -webkit-linear-gradient(bottom, #5bc0de, #2f96b4);
+  background-image: -moz-linear-gradient(bottom, #5bc0de, #2f96b4);
+  background-image: -o-linear-gradient(bottom, #5bc0de, #2f96b4);
+  background-image: linear-gradient(bottom, #5bc0de, #2f96b4);
 }
-/* line 134, ../sass/bootstrap-toggle-buttons.scss */
+/* line 142, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.success {
   color: #fefefe;
   background: #62c462;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #62c462), color-stop(100%, #51a351));
-  background-image: -webkit-linear-gradient(top, #62c462, #51a351);
-  background-image: -moz-linear-gradient(top, #62c462, #51a351);
-  background-image: -o-linear-gradient(top, #62c462, #51a351);
-  background-image: linear-gradient(top, #62c462, #51a351);
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #62c462), color-stop(100%, #51a351));
+  background-image: -webkit-linear-gradient(bottom, #62c462, #51a351);
+  background-image: -moz-linear-gradient(bottom, #62c462, #51a351);
+  background-image: -o-linear-gradient(bottom, #62c462, #51a351);
+  background-image: linear-gradient(bottom, #62c462, #51a351);
 }
-/* line 140, ../sass/bootstrap-toggle-buttons.scss */
+/* line 148, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.warning {
   color: #fefefe;
   background: #dbb450;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dbb450), color-stop(100%, #f89406));
-  background-image: -webkit-linear-gradient(top, #dbb450, #f89406);
-  background-image: -moz-linear-gradient(top, #dbb450, #f89406);
-  background-image: -o-linear-gradient(top, #dbb450, #f89406);
-  background-image: linear-gradient(top, #dbb450, #f89406);
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #dbb450), color-stop(100%, #f89406));
+  background-image: -webkit-linear-gradient(bottom, #dbb450, #f89406);
+  background-image: -moz-linear-gradient(bottom, #dbb450, #f89406);
+  background-image: -o-linear-gradient(bottom, #dbb450, #f89406);
+  background-image: linear-gradient(bottom, #dbb450, #f89406);
 }
-/* line 146, ../sass/bootstrap-toggle-buttons.scss */
+/* line 154, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.danger {
   color: #fefefe;
   background: #ee5f5b;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ee5f5b), color-stop(100%, #bd362f));
-  background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
-  background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
-  background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
-  background-image: linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ee5f5b), color-stop(100%, #bd362f));
+  background-image: -webkit-linear-gradient(bottom, #ee5f5b, #bd362f);
+  background-image: -moz-linear-gradient(bottom, #ee5f5b, #bd362f);
+  background-image: -o-linear-gradient(bottom, #ee5f5b, #bd362f);
+  background-image: linear-gradient(bottom, #ee5f5b, #bd362f);
 }

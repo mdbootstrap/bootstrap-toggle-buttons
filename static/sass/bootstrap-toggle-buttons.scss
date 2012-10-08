@@ -6,6 +6,7 @@
 $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 $white: #FEFEFE;
 $blue: #0088CC;
+$gray: #E6E6E6;
 $border-radius: 4px;
 
 .switch {
@@ -18,6 +19,7 @@ $border-radius: 4px;
   text-align: left;
   overflow: hidden;
   min-width: 100px;
+  line-height: 8px;
 
   // disable text selection highlighting
   -webkit-touch-callout: none;
@@ -40,12 +42,13 @@ $border-radius: 4px;
     position: relative;
     top: 0;
 
-    @include transition(left 0.5s);
-
-    &.btn-off {
-      left: -46%;
+    &.switch-animate {
+      @include transition(left 0.5s);
     }
-    &.btn-on {
+    &.switch-off {
+      left: -50%;
+    }
+    &.switch-on {
       left: 0%;
     }
   }
@@ -58,11 +61,12 @@ $border-radius: 4px;
   }
 
   span, label {
+    @include box-sizing(border-box);
+
     cursor: pointer;
     position: relative;
-    //float: left;
     display: inline-block;
-    width: 33.3%;
+    width: 33.3333333333%;
     height: 100%;
 
     padding-bottom: 4px;
@@ -72,6 +76,13 @@ $border-radius: 4px;
 
     padding-left: $border-radius/2;
     padding-right: $border-radius/2;
+
+    &.switch-mini {
+      padding-bottom: 2px;
+      padding-top: 2px;
+      font-size: 10px;
+      line-height: 9px;
+    }
 
     &.switch-small {
       padding-bottom: 3px;
@@ -91,63 +102,60 @@ $border-radius: 4px;
 
   label {
     background: $white;
-    border: 1px solid #E6E6E6;
-    margin: -1px -$border-radius;
+    margin-top: -1px;
+    margin-bottom: -1px;
     z-index: 100;
 
     @include background-image(linear-gradient(top, $white, #E6E6E6));
-    @include border-radius($border-radius);
   }
 
   span {
+
     color: $white;
     text-align: center;
     //font-weight: bold;
     z-index: 1;
 
-    @include box-sizing(border-box);
 
-    &.labelLeft {
+    &.switch-left {
       @include border-top-left-radius($border-radius);
       @include border-bottom-left-radius($border-radius);
-      //padding-left: 3px;
     }
-    &.labelRight {
+    &.switch-right {
+      color: black;
       @include border-top-right-radius($border-radius);
       @include border-bottom-right-radius($border-radius);
-      color: black;
-      @include background-image(linear-gradient(top, $white, #E6E6E6));
-      //padding-right: 3px;
+      @include background-image(linear-gradient(bottom, $white, #E6E6E6));
     }
 
-    &.primary, &.labelLeft {
+    &.primary, &.switch-left {
       color: $white;
       background: $blue;
-      @include background-image(linear-gradient(top, $blue, #0055CC));
+      @include background-image(linear-gradient(bottom, $blue, #0055CC));
     }
     &.info {
       $startColor: #5BC0DE;
       color: $white;
       background: $startColor;
-      @include background-image(linear-gradient(top, $startColor, #2F96B4));
+      @include background-image(linear-gradient(bottom, $startColor, #2F96B4));
     }
     &.success {
       $startColor: #62C462;
       color: $white;
       background: $startColor;
-      @include background-image(linear-gradient(top, $startColor, #51A351));
+      @include background-image(linear-gradient(bottom, $startColor, #51A351));
     }
     &.warning {
       $startColor: #DBB450;
       color: $white;
       background: $startColor;
-      @include background-image(linear-gradient(top, $startColor, #F89406));
+      @include background-image(linear-gradient(bottom, $startColor, #F89406));
     }
     &.danger {
       $startColor: #EE5f5B;
       color: $white;
       background: $startColor;
-      @include background-image(linear-gradient(top, $startColor, #BD362F));
+      @include background-image(linear-gradient(bottom, $startColor, #BD362F));
     }
   }
 }
