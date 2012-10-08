@@ -9,7 +9,8 @@
           , $switchRight
           , $label
           , myClasses = ""
-          , classes = $element.attr('class');
+          , classes = $element.attr('class')
+          , color;
 
         $.each(['switch-mini', 'switch-small', 'switch-large'], function (i, el) {
           if (classes.indexOf(el) >= 0) {
@@ -18,14 +19,22 @@
           }
         });
 
+        if ($element.data('on') !== undefined)
+          color = "switch-" + $element.data('on');
+
         $switchLeft = $('<span></span>')
           .addClass("switch-left")
           .addClass(myClasses)
+          .addClass(color)
           .text("ON");
+
+        if ($element.data('off') !== undefined)
+          color = "switch-" + $element.data('off');
 
         $switchRight = $('<span></span>')
           .addClass("switch-right")
           .addClass(myClasses)
+          .addClass(color)
           .text("OFF");
 
         $label = $('<label></label>')

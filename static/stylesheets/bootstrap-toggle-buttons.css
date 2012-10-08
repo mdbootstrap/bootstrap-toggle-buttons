@@ -1,4 +1,4 @@
-/* line 12, ../sass/bootstrap-toggle-buttons.scss */
+/* line 9, ../sass/bootstrap-toggle-buttons.scss */
 .switch {
   display: inline-block;
   cursor: pointer;
@@ -21,43 +21,43 @@
   -ms-user-select: none;
   user-select: none;
 }
-/* line 32, ../sass/bootstrap-toggle-buttons.scss */
+/* line 29, ../sass/bootstrap-toggle-buttons.scss */
 .switch.deactivate {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
   opacity: 0.5;
   cursor: default !important;
 }
-/* line 35, ../sass/bootstrap-toggle-buttons.scss */
+/* line 32, ../sass/bootstrap-toggle-buttons.scss */
 .switch.deactivate label, .switch.deactivate span {
   cursor: default !important;
 }
-/* line 39, ../sass/bootstrap-toggle-buttons.scss */
+/* line 36, ../sass/bootstrap-toggle-buttons.scss */
 .switch > div {
   display: inline-block;
   width: 150%;
   position: relative;
   top: 0;
 }
-/* line 45, ../sass/bootstrap-toggle-buttons.scss */
+/* line 42, ../sass/bootstrap-toggle-buttons.scss */
 .switch > div.switch-animate {
   -webkit-transition: left 0.5s;
   -moz-transition: left 0.5s;
   -o-transition: left 0.5s;
   transition: left 0.5s;
 }
-/* line 48, ../sass/bootstrap-toggle-buttons.scss */
+/* line 45, ../sass/bootstrap-toggle-buttons.scss */
 .switch > div.switch-off {
   left: -50%;
 }
-/* line 51, ../sass/bootstrap-toggle-buttons.scss */
+/* line 48, ../sass/bootstrap-toggle-buttons.scss */
 .switch > div.switch-on {
   left: 0%;
 }
-/* line 55, ../sass/bootstrap-toggle-buttons.scss */
+/* line 52, ../sass/bootstrap-toggle-buttons.scss */
 .switch input[type=checkbox] {
   display: none;
 }
-/* line 63, ../sass/bootstrap-toggle-buttons.scss */
+/* line 60, ../sass/bootstrap-toggle-buttons.scss */
 .switch span, .switch label {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -74,28 +74,28 @@
   padding-left: 2px;
   padding-right: 2px;
 }
-/* line 80, ../sass/bootstrap-toggle-buttons.scss */
+/* line 77, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.switch-mini, .switch label.switch-mini {
   padding-bottom: 2px;
   padding-top: 2px;
   font-size: 10px;
   line-height: 9px;
 }
-/* line 87, ../sass/bootstrap-toggle-buttons.scss */
+/* line 84, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.switch-small, .switch label.switch-small {
   padding-bottom: 3px;
   padding-top: 3px;
   font-size: 12px;
   line-height: 18px;
 }
-/* line 94, ../sass/bootstrap-toggle-buttons.scss */
+/* line 91, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.switch-large, .switch label.switch-large {
   padding-bottom: 9px;
   padding-top: 9px;
   font-size: 16px;
   line-height: normal;
 }
-/* line 103, ../sass/bootstrap-toggle-buttons.scss */
+/* line 100, ../sass/bootstrap-toggle-buttons.scss */
 .switch label {
   background: #fefefe;
   margin-top: -1px;
@@ -107,13 +107,13 @@
   background-image: -o-linear-gradient(top, #fefefe, #e6e6e6);
   background-image: linear-gradient(top, #fefefe, #e6e6e6);
 }
-/* line 112, ../sass/bootstrap-toggle-buttons.scss */
+/* line 109, ../sass/bootstrap-toggle-buttons.scss */
 .switch span {
   color: #fefefe;
   text-align: center;
   z-index: 1;
 }
-/* line 120, ../sass/bootstrap-toggle-buttons.scss */
+/* line 117, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.switch-left {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
@@ -122,7 +122,7 @@
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
-/* line 124, ../sass/bootstrap-toggle-buttons.scss */
+/* line 121, ../sass/bootstrap-toggle-buttons.scss */
 .switch span.switch-right {
   color: black;
   -moz-border-radius-topright: 4px;
@@ -137,8 +137,8 @@
   background-image: -o-linear-gradient(bottom, #fefefe, #e6e6e6);
   background-image: linear-gradient(bottom, #fefefe, #e6e6e6);
 }
-/* line 131, ../sass/bootstrap-toggle-buttons.scss */
-.switch span.primary, .switch span.switch-left {
+/* line 128, ../sass/bootstrap-toggle-buttons.scss */
+.switch span.switch-primary, .switch span.switch-left {
   color: #fefefe;
   background: #0088cc;
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #0088cc), color-stop(100%, #0055cc));
@@ -147,8 +147,8 @@
   background-image: -o-linear-gradient(bottom, #0088cc, #0055cc);
   background-image: linear-gradient(bottom, #0088cc, #0055cc);
 }
-/* line 136, ../sass/bootstrap-toggle-buttons.scss */
-.switch span.info {
+/* line 133, ../sass/bootstrap-toggle-buttons.scss */
+.switch span.switch-info {
   color: #fefefe;
   background: #5bc0de;
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #5bc0de), color-stop(100%, #2f96b4));
@@ -157,8 +157,8 @@
   background-image: -o-linear-gradient(bottom, #5bc0de, #2f96b4);
   background-image: linear-gradient(bottom, #5bc0de, #2f96b4);
 }
-/* line 142, ../sass/bootstrap-toggle-buttons.scss */
-.switch span.success {
+/* line 139, ../sass/bootstrap-toggle-buttons.scss */
+.switch span.switch-success {
   color: #fefefe;
   background: #62c462;
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #62c462), color-stop(100%, #51a351));
@@ -167,8 +167,8 @@
   background-image: -o-linear-gradient(bottom, #62c462, #51a351);
   background-image: linear-gradient(bottom, #62c462, #51a351);
 }
-/* line 148, ../sass/bootstrap-toggle-buttons.scss */
-.switch span.warning {
+/* line 145, ../sass/bootstrap-toggle-buttons.scss */
+.switch span.switch-warning {
   color: #fefefe;
   background: #dbb450;
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #dbb450), color-stop(100%, #f89406));
@@ -177,8 +177,8 @@
   background-image: -o-linear-gradient(bottom, #dbb450, #f89406);
   background-image: linear-gradient(bottom, #dbb450, #f89406);
 }
-/* line 154, ../sass/bootstrap-toggle-buttons.scss */
-.switch span.danger {
+/* line 151, ../sass/bootstrap-toggle-buttons.scss */
+.switch span.switch-danger {
   color: #fefefe;
   background: #ee5f5b;
   background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, #ee5f5b), color-stop(100%, #bd362f));
