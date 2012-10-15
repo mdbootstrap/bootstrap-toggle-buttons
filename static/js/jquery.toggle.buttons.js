@@ -208,8 +208,8 @@
                 }
               });
             }
-          )
-          ;
+          );
+	  return this;
         },
         toggleActivation: function () {
           $(this).toggleClass('deactivate');
