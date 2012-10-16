@@ -1,10 +1,13 @@
 !function ($) {
   "use strict";
-  // version: 2.6
+  // version: 2.7
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   var addToAttribute = function (obj, array, value) {
-    for (var i = 0, length = array.length; i < length; i++) {
+    var i = 0
+      , length = array.length;
+
+    for (; i < length; i++) {
       obj = obj[array[i]] = obj[array[i]] || i == ( length - 1) ? value : {}
     }
   };
@@ -31,7 +34,7 @@
 
                 if (i.indexOf("togglebutton") === 0) {
                   key = i.match(/[A-Z][a-z]+/g);
-                  key = jQuery.map(key, function (n) {
+                  key = $.map(key, function (n) {
                     return (n.toLowerCase());
                   });
 
@@ -221,10 +224,10 @@
         },
         toggleState: function (skipOnChange) {
           var $input = $(this).find('input');
-          $input.attr('checked', !$input.is(':checked')).trigger('change', skipOnChange)
+          $input.attr('checked', !$input.is(':checked')).trigger('change', skipOnChange);
         },
         setState: function(value, skipOnChange) {
-          $(this).find('input').attr('checked', value).trigger('change', skipOnChange)
+          $(this).find('input').attr('checked', value).trigger('change', skipOnChange);
         }
       };
 
