@@ -48,7 +48,7 @@
               $spanRight = $('<span></span>').addClass("labelRight").text(options.label.disabled === undefined ? "OFF " : options.label.disabled);
 
               // html layout
-              $div = $element.find('input').wrap($('<div></div>')).parent();
+              $div = $element.find('input:checkbox').wrap($('<div></div>')).parent();
               $div.append($spanLeft);
               $div.append($('<label></label>').attr('for', $element.find('input').attr('id')));
               $div.append($spanRight);
