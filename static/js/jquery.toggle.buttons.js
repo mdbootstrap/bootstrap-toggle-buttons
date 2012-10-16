@@ -118,7 +118,10 @@
               else $spanRight.addClass(options.style.disabled);
 
               var changeStatus = function ($this) {
-                $this.siblings('label').trigger('mousedown').trigger('mouseup').trigger('click');
+                $this.siblings('label')
+                  .trigger('mousedown')
+                  .trigger('mouseup')
+                  .trigger('click');
               };
 
               $spanLeft.on('click', function (e) {
@@ -144,36 +147,38 @@
                   options.onChange($element, active, e);
               });
 
-              $('.toggle-button').find('label').on('mousedown', function (e) {
+              $('.toggle-button').find('label').on('mousedown touchstart', function (e) {
                 moving = false;
-
                 e.preventDefault();
                 e.stopImmediatePropagation();
 
                 if ($(this).closest('.toggle-button').is('.deactivate'))
-                  $(this).unbind('click');
+                  $(this).off('click');
                 else {
-                  $(this).on('mousemove', function (e) {
+                  $(this).on('mousemove touchmove', function (e) {
                     var $element = $(this).closest('.toggle-button')
-                      , relativeX = e.pageX - $element.offset().left
+                      , relativeX = (e.pageX || e.originalEvent.targetTouches[0].pageX) - $element.offset().left
                       , percent = ((relativeX / (options.width * 2)) * 100);
                     moving = true;
+
+                    e.stopImmediatePropagation();
+                    e.preventDefault();
 
                     if (percent < 25)
                       percent = 25;
                     else if (percent > 75)
                       percent = 75;
 
-                    $element.find('>div').css('left', (percent - 75) + "%")
+                    $element.find('>div').css('left', (percent - 75) + "%");
                   });
 
-                  $(this).on('click', function (e) {
+                  $(this).on('click touchend', function (e) {
                     var $target = $(e.target)
                       , $myCheckBox = $target.siblings('input');
 
                     e.stopImmediatePropagation();
                     e.preventDefault();
-                    $(this).unbind('mouseleave');
+                    $(this).off('mouseleave');
 
                     if (moving)
                       if (parseInt($(this).parent().css('left')) < -25)
@@ -190,7 +195,7 @@
                     e.preventDefault();
                     e.stopImmediatePropagation();
 
-                    $(this).unbind('mouseleave');
+                    $(this).off('mouseleave');
                     $(this).trigger('mouseup');
 
                     if (parseInt($(this).parent().css('left')) < -25)
@@ -203,7 +208,7 @@
                   $(this).on('mouseup', function (e) {
                     e.stopImmediatePropagation();
                     e.preventDefault();
-                    $(this).unbind('mousemove');
+                    $(this).off('mousemove');
                   });
                 }
               });
