@@ -228,6 +228,9 @@
         },
         setState: function(value, skipOnChange) {
           $(this).find('input').attr('checked', value).trigger('change', skipOnChange);
+        },
+        status: function () {
+          return $(this).find('input').attr('checked');
         }
       };
 
