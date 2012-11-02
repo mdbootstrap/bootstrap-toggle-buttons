@@ -81,7 +81,7 @@ $border-radius: 4px;
       padding-left: 3px;
     }
     &.labelRight {
-      @include border-bottom-right-radius($border-radius);
+      @include border-top-right-radius($border-radius);
       @include border-bottom-right-radius($border-radius);
       color: black;
       @include background-image(linear-gradient(bottom, $white, #E6E6E6));
