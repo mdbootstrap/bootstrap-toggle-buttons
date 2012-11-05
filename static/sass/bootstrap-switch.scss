@@ -26,20 +26,18 @@ $border-radius: 4px;
   -ms-user-select: none;
   user-select: none;
 
-  $normalWidth: 80px;
-  min-width: $normalWidth;
-  max-width: $normalWidth;
+  min-width: 100px;
 
   &.switch-mini {
-    min-width: $normalWidth / 1.4;
+    min-width: 70px;
   }
 
   &.switch-small {
-    min-width: $normalWidth / 1.2;
+    min-width: 80px;
   }
 
   &.switch-large {
-    min-width: $normalWidth * 1.2;
+    min-width: 120px;
   }
 
   &.deactivate {
@@ -87,8 +85,8 @@ $border-radius: 4px;
     line-height: 20px;
 
     &.switch-mini {
-      padding-bottom: 2px;
-      padding-top: 2px;
+      padding-bottom: 4px;
+      padding-top: 4px;
       font-size: 10px;
       line-height: 9px;
     }
