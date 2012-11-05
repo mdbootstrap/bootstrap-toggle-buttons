@@ -1,9 +1,9 @@
 @import "compass/css3";
 
 $border: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-$white: #FEFEFE;
-$blue: #0088CC;
-$gray: #E6E6E6;
+$white: #ffffff;
+$blue: #0088cc;
+$gray: #e6e6e6;
 $border-radius: 4px;
 
 .switch {
@@ -12,10 +12,10 @@ $border-radius: 4px;
   @include border-radius(5px);
   border: 1px solid;
   border-color: $border;
+  background: $gray;
   position: relative;
   text-align: left;
   overflow: hidden;
-  min-width: 100px;
   line-height: 8px;
 
   // disable text selection highlighting
@@ -25,6 +25,22 @@ $border-radius: 4px;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  $normalWidth: 80px;
+  min-width: $normalWidth;
+  max-width: $normalWidth;
+
+  &.switch-mini {
+    min-width: $normalWidth / 1.4;
+  }
+
+  &.switch-small {
+    min-width: $normalWidth / 1.2;
+  }
+
+  &.switch-large {
+    min-width: $normalWidth * 1.2;
+  }
 
   &.deactivate {
     @include opacity(0.5);
@@ -43,7 +59,7 @@ $border-radius: 4px;
       @include transition(left 0.5s);
     }
     &.switch-off {
-      left: -50%;
+      left: -49.5%;
     }
     &.switch-on {
       left: 0%;
@@ -63,16 +79,12 @@ $border-radius: 4px;
     cursor: pointer;
     position: relative;
     display: inline-block;
-    width: 33.3333333333%;
     height: 100%;
 
     padding-bottom: 4px;
     padding-top: 4px;
     font-size: 14px;
     line-height: 20px;
-
-    padding-left: $border-radius/2;
-    padding-right: $border-radius/2;
 
     &.switch-mini {
       padding-bottom: 2px;
@@ -94,7 +106,6 @@ $border-radius: 4px;
       font-size: 16px;
       line-height: normal;
     }
-
   }
 
   label {
@@ -102,17 +113,18 @@ $border-radius: 4px;
     margin-top: -1px;
     margin-bottom: -1px;
     z-index: 100;
+    width: 34%;
+    border-left: 1px solid $gray;
+    border-right: 1px solid $gray;
 
-    @include background-image(linear-gradient(top, $white, #E6E6E6));
+    @include background-image(linear-gradient(top, $white, $gray));
   }
 
   span {
-
     color: $white;
     text-align: center;
-    //font-weight: bold;
     z-index: 1;
-
+    width: 33%;
 
     &.switch-left {
       @include border-top-left-radius($border-radius);
@@ -122,7 +134,7 @@ $border-radius: 4px;
       color: black;
       @include border-top-right-radius($border-radius);
       @include border-bottom-right-radius($border-radius);
-      @include background-image(linear-gradient(bottom, $white, #E6E6E6));
+      @include background-image(linear-gradient(bottom, $white, $gray));
     }
 
     &.switch-primary, &.switch-left {

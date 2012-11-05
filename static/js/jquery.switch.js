@@ -1,7 +1,7 @@
 !function ($) {
   "use strict";
 
-  $.fn.toggleButtons = function () {
+  $.fn.switch = function () {
     this.each(function () {
         var $element = $(this)
           , $div
@@ -13,10 +13,8 @@
           , color;
 
         $.each(['switch-mini', 'switch-small', 'switch-large'], function (i, el) {
-          if (classes.indexOf(el) >= 0) {
+          if (classes.indexOf(el) >= 0)
             myClasses = el;
-            $element.removeClass(el);
-          }
         });
 
         if ($element.data('on') !== undefined)
@@ -82,7 +80,7 @@
           $element.parent().trigger('switch-change', {'el': $(this), 'value': $(this).is(':checked')})
         });
 
-        $element.find('label').on('mousedown', function (e) {
+        $element.find('label').on('mousedown touchstart', function (e) {
           var $this = $(this)
             , moving = false;
 
@@ -96,7 +94,8 @@
           else {
             $this.on('mousemove touchmove', function (e) {
               var $element = $(this).closest('.switch')
-                , percent = (((e.pageX - $element.offset().left) / $element.width()) * 100)
+                , relativeX = (e.pageX || e.originalEvent.targetTouches[0].pageX) - $element.offset().left
+                , percent = (relativeX / $element.width()) * 100
                 , left = 25
                 , right = 75;
 
@@ -110,7 +109,7 @@
               $element.find('>div').css('left', (percent - right) + "%")
             });
 
-            $this.on('click', function (e) {
+            $this.on('click touchend', function (e) {
               var $this = $(this)
                 , $target = $(e.target)
                 , $myCheckBox = $target.siblings('input');
@@ -124,6 +123,7 @@
                 $myCheckBox.attr('checked', !(parseInt($this.parent().css('left')) < -25));
               else $myCheckBox.attr("checked", !$myCheckBox.is(":checked"));
 
+              moving = false;
               $myCheckBox.trigger('change');
             });
 
@@ -154,5 +154,5 @@
 }($);
 
 $(function () {
-  $('.switch').toggleButtons();
+  $('.switch').switch();
 });
