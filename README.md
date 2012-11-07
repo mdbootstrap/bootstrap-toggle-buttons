@@ -110,3 +110,7 @@ JS
 ``` javascript
 $('#my-toggle-button').toggleButtons('toggleState');
 ```
+
+Like this project?
+------------------
+[![endorse](http://api.coderwall.com/nostalgia/endorsecount.png)](http://coderwall.com/nostalgia)
