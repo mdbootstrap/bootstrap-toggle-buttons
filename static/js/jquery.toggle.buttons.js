@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 2.7
+  // version: 2.8
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   var addToAttribute = function (obj, array, value) {
@@ -231,6 +231,19 @@
         },
         status: function () {
           return $(this).find('input:checkbox').is(':checked');
+        },
+        destroy: function () {
+          var $div = $(this).find('div')
+            , $checkbox;
+
+          $div.find(':not(input:checkbox)').remove();
+
+          $checkbox = $div.children();
+          $checkbox.unwrap().unwrap();
+
+          $checkbox.unbind('change');
+
+          return $checkbox;
         }
       };
 

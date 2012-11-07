@@ -111,6 +111,13 @@ JS
 $('#my-toggle-button').toggleButtons('toggleState');
 ```
 
+Destroy
+-------
+JS
+``` javascript
+$('#my-toggle-button').toggleButtons('destroy');
+```
+
 Like this project?
 ------------------
 [![endorse](http://api.coderwall.com/nostalgia/endorsecount.png)](http://coderwall.com/nostalgia)
