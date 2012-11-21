@@ -134,7 +134,7 @@
                 changeStatus($(this));
               });
 
-              $('.toggle-button').find('input').on('change', function (e, skipOnChange) {
+              $element.find('input').on('change', function (e, skipOnChange) {
                 var $element = $(this).parent()
                   , active = $(this).is(':checked')
                   , $toggleButton = $(this).closest('.toggle-button');
@@ -150,7 +150,7 @@
                   options.onChange($element, active, e);
               });
 
-              $('.toggle-button').find('label').on('mousedown touchstart', function (e) {
+              $element.find('label').on('mousedown touchstart', function (e) {
                 moving = false;
                 e.preventDefault();
                 e.stopImmediatePropagation();
