@@ -139,9 +139,6 @@
                   , active = $(this).is(':checked')
                   , $toggleButton = $(this).closest('.toggle-button');
 
-                e.preventDefault();
-                e.stopImmediatePropagation();
-
                 $element.stop().animate({'left': active ? '0' : '-50%'}, $toggleButton.data('transitionSpeed'));
 
                 options = $toggleButton.data('options');
