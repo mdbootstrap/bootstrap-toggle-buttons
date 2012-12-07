@@ -53,7 +53,7 @@
               // html layout
               $div = $element.find('input:checkbox').wrap($('<div></div>')).parent();
               $div.append($spanLeft);
-              $div.append($('<label></label>').attr('for', $element.find('input').attr('id')));
+              $div.append($('<label></label>').attr('for', $element.find('input').attr('id') || ''));
               $div.append($spanRight);
 
               if ($element.find('input').is(':checked'))
