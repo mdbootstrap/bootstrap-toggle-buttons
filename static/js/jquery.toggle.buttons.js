@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 2.8.1
+  // version: 2.8.2
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   var addToAttribute = function (obj, array, value) {
@@ -56,7 +56,7 @@
 
               $div = $cb.wrap($('<div></div>')).parent();
               $div.append($spanLeft);
-              $div.append($('<label></label>').attr('for', $cb.attr('id')));
+              $div.append($('<label></label>').attr('for', $cb.attr('id') || ''));
               $div.append($spanRight);
 
               if ($cb.is(':checked'))
