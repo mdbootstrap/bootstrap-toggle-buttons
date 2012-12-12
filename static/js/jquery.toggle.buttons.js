@@ -137,13 +137,10 @@
                 changeStatus($(this));
               });
 
-              $('.toggle-button').find('input:checkbox').on('change', function (e, skipOnChange) {
+              $element.find('input:checkbox').on('change', function (e, skipOnChange) {
                 var $element = $(this).parent()
                   , active = $(this).is(':checked')
                   , $toggleButton = $(this).closest('.toggle-button');
-
-                e.preventDefault();
-                e.stopImmediatePropagation();
 
                 $element.stop().animate({'left': active ? '0' : '-50%'}, $toggleButton.data('transitionSpeed'));
 
@@ -153,7 +150,7 @@
                   options.onChange($element, active, e);
               });
 
-              $('.toggle-button').find('label').on('mousedown touchstart', function (e) {
+              $element.find('label').on('mousedown touchstart', function (e) {
                 moving = false;
                 e.preventDefault();
                 e.stopImmediatePropagation();
