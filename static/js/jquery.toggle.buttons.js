@@ -1,6 +1,6 @@
 !function ($) {
   "use strict";
-  // version: 2.8
+  // version: 2.8.1
   // by Mattia Larentis - follow me on twitter! @SpiritualGuru
 
   var addToAttribute = function (obj, array, value) {
