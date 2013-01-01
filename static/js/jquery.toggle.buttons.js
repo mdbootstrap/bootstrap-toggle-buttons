@@ -101,6 +101,7 @@
                   if (options.style.custom.enabled.gradient === undefined)
                     $spanLeft.css('background', options.style.custom.enabled.background);
                   else $.each(["-webkit-", "-moz-", "-o-", ""], function (i, el) {
+                    $spanLeft.css('background-color', options.style.custom.enabled.background);
                     $spanLeft.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.enabled.background + ',' + options.style.custom.enabled.gradient + ')');
                   });
                 }
@@ -114,6 +115,7 @@
                   if (options.style.custom.disabled.gradient === undefined)
                     $spanRight.css('background', options.style.custom.disabled.background);
                   else $.each(["-webkit-", "-moz-", "-o-", ""], function (i, el) {
+                    $spanRight.css('background-color', options.style.custom.disabled.background);
                     $spanRight.css('background-image', el + 'linear-gradient(top, ' + options.style.custom.disabled.background + ',' + options.style.custom.disabled.gradient + ')');
                   });
                 }
