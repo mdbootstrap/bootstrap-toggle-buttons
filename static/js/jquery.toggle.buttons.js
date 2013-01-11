@@ -234,6 +234,12 @@
         status: function () {
           return $(this).find('input:checkbox').is(':checked');
         },
+        setActivation: function(enable) {
+          $(this)[enable ? "addClass" : "removeClass"]('deactivate');
+        },
+        activation: function() {
+          return $(this).hasClass('deactivate');
+        },
         destroy: function () {
           var $div = $(this).find('div')
             , $checkbox;
