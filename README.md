@@ -1,6 +1,13 @@
 Bootstrap-toggle-buttons
 ========================
 
+Bootstrap-toggle-buttons has moved to https://github.com/nostalgiaz/bootstrap-switch
+Bootstrap-toggle-buttons has moved to https://github.com/nostalgiaz/bootstrap-switch
+Bootstrap-toggle-buttons has moved to https://github.com/nostalgiaz/bootstrap-switch
+Bootstrap-toggle-buttons has moved to https://github.com/nostalgiaz/bootstrap-switch
+Bootstrap-toggle-buttons has moved to https://github.com/nostalgiaz/bootstrap-switch
+Bootstrap-toggle-buttons has moved to https://github.com/nostalgiaz/bootstrap-switch
+
 Demo
 ----
 http://www.larentis.eu/bootstrap_toggle_buttons/
