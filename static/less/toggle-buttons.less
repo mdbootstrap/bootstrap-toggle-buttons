@@ -1,0 +1,157 @@
+
+// version: 2.8
+// by Mattia Larentis - follow me on twitter! @SpiritualGuru
+
+// @import "variables.less";
+// the above line is required
+// if the variables file is not 
+// imported already
+
+// Mixin for gradient helper
+#gradient {
+  .bottom(@startColor, @endColor) {
+  background-image: -webkit-gradient(linear, 50% 100%, 50% 0%, color-stop(0%, @startColor), color-stop(100%, @endColor));
+  background-image: -webkit-linear-gradient(bottom, @startColor, @endColor);
+  background-image: -moz-linear-gradient(bottom, @startColor, @endColor);
+  background-image: -o-linear-gradient(bottom, @startColor, @endColor);
+  background-image: linear-gradient(bottom, @startColor, @endColor);
+  background-repeat: repeat-x;
+  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@startColor),argb(@endColor))); // IE9 and down
+  }
+}
+
+// These variables can be customized in addition to the global Boostrap ones
+@toggleBorder: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+@toggleBorderColor: #E6E6E6;
+@toggleTextColor: #fff;
+@toggleBackgroundColor: #0088CC;
+
+
+.toggle-button {
+  display: inline-block;
+  cursor: pointer;
+  .border-radius(5px);
+  border: 1px solid;
+  border-color: @toggleBorder;
+
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+
+  // disable text selection highlighting
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+
+  &.deactivate {
+    .opacity(50);
+    cursor: not-allowed !important;
+    label, span {
+      cursor: not-allowed !important;
+    }
+  }
+
+  >div {
+    display: inline-block;
+    width: 200px;
+    position: absolute;
+    top: 0;
+
+    &.disabled {
+      left: -50%;
+    }
+  }
+  input[type=checkbox] {
+    //debug
+    display: none;
+    //position: absolute;
+    //margin-left: 60%;
+    //z-index: 123;
+  }
+
+  span, label {
+    cursor: pointer;
+    position: relative;
+    float: left;
+    display: inline-block;
+  }
+
+  label {
+    background: @toggleTextColor;
+    margin-left: -@baseBorderRadius;
+    margin-right: -@baseBorderRadius;
+    border: 1px solid @toggleBorderColor;
+    margin-top: -1px;
+    z-index: 100;
+
+    #gradient > .vertical(@toggleTextColor, @toggleBorderColor);
+    .border-radius(@baseBorderRadius);
+  }
+
+  span {
+    color: @toggleTextColor;
+    text-align: center;
+    font-weight: bold;
+    z-index: 1;
+
+    &.labelLeft {
+      .border-left-radius(@baseBorderRadius);
+      color: black;
+      #gradient > .bottom(@toggleTextColor, @toggleBorderColor);
+      padding-left: 3px;
+    }
+    &.labelRight {
+      .border-right-radius(@baseBorderRadius);
+      color: black;
+      #gradient > .bottom(@toggleTextColor, @toggleBorderColor);
+      padding-right: 3px;
+    }
+
+    &.primary, &.labelLeft {
+      @startColor: @btnPrimaryBackground;
+      @endColor: @btnPrimaryBackgroundHighlight;
+      color: @toggleTextColor;
+      background: @startColor;
+      #gradient > .bottom(@startColor, @endColor);
+    }
+    &.info {
+      @startColor: @btnInfoBackground;
+      @endColor: @btnInfoBackgroundHighlight;
+      color: @toggleTextColor;
+      background: @startColor;
+      #gradient > .bottom(@startColor, @endColor);
+    }
+    &.success {
+      @startColor: @btnSuccessBackground;
+      @endColor: @btnSuccessBackgroundHighlight;
+      color: @toggleTextColor;
+      background: @startColor;
+      #gradient > .bottom(@startColor, @endColor);
+    }
+    &.warning {
+      @startColor: @btnWarningBackground;
+      @endColor: @btnWarningBackgroundHighlight;
+      color: @toggleTextColor;
+      background: @startColor;
+      #gradient > .bottom(@startColor, @endColor);
+    }
+    &.danger {
+      @startColor: @btnDangerBackground;
+      @endColor: @btnDangerBackgroundHighlight;
+      color: @toggleTextColor;
+      background: @startColor;
+      #gradient > .bottom(@startColor, @endColor);
+    }
+    &.inverse {
+      @startColor: @btnInverseBackground;
+      @endColor: @btnInverseBackgroundHighlight;
+      color: @toggleTextColor;
+      background: @startColor;
+      #gradient > .bottom(@startColor, @endColor);
+    }
+  }
+}
